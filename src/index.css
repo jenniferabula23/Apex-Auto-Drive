@@ -1,0 +1,115 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: Tahoma, Poppins, Geneva, Verdana, sans-serif;
+    background-color: #000000;
+    color: #EAECEC;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: Poppins, Tahoma, sans-serif;
+  }
+}
+
+@layer utilities {
+  .glow-red {
+    box-shadow: 0 0 30px rgba(174, 33, 25, 0.6), 0 0 60px rgba(174, 33, 25, 0.2);
+  }
+
+  .glow-red-sm {
+    box-shadow: 0 0 15px rgba(174, 33, 25, 0.5);
+  }
+
+  .text-glow {
+    text-shadow: 0 0 30px rgba(174, 33, 25, 0.8);
+  }
+
+  .glass {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .glass-dark {
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+  }
+
+  .grid-lines {
+    background-image:
+      linear-gradient(rgba(174, 33, 25, 0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(174, 33, 25, 0.05) 1px, transparent 1px);
+    background-size: 60px 60px;
+  }
+
+  .perspective-card {
+    transform-style: preserve-3d;
+    perspective: 1000px;
+  }
+
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-brand-red text-white font-semibold px-8 py-3
+           transition-all duration-300 hover:bg-brand-red-light
+           hover:shadow-[0_0_30px_rgba(174,33,25,0.6)]
+           active:scale-95 tracking-wider uppercase text-sm;
+  }
+
+  .btn-outline {
+    @apply border border-white/20 text-white font-semibold
+           px-8 py-3 transition-all duration-300
+           hover:border-brand-red hover:text-white
+           hover:shadow-[0_0_20px_rgba(174,33,25,0.3)]
+           active:scale-95 tracking-wider uppercase text-sm;
+  }
+
+  .section-heading {
+    @apply text-4xl md:text-5xl font-bold font-heading tracking-tight;
+  }
+}
+
+::-webkit-scrollbar {
+  width: 4px;
+}
+::-webkit-scrollbar-track {
+  background: #000;
+}
+::-webkit-scrollbar-thumb {
+  background: #AE2119;
+  border-radius: 2px;
+}
+
+@keyframes speedLine {
+  0% { transform: translateX(-100%); opacity: 0; }
+  50% { opacity: 0.6; }
+  100% { transform: translateX(200%); opacity: 0; }
+}
+
+.speed-line {
+  animation: speedLine 1.8s ease-in-out infinite;
+}
