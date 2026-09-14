@@ -2,6 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --brand-brown: #3f2a1c;
+  --brand-brown-soft: #6b4e3d;
+  --surface-warm: #faf8f6;
+  --surface-paper: #fffcf9;
+  --texture-noise: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.55'/%3E%3C/svg%3E");
+}
+
 @layer base {
   * {
     box-sizing: border-box;
@@ -13,8 +21,8 @@
 
   body {
     font-family: Tahoma, Poppins, Geneva, Verdana, sans-serif;
-    background-color: #000000;
-    color: #EAECEC;
+    background-color: var(--surface-warm);
+    color: #111111;
     overflow-x: hidden;
   }
 
@@ -52,9 +60,42 @@
 
   .grid-lines {
     background-image:
-      linear-gradient(rgba(174, 33, 25, 0.05) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(174, 33, 25, 0.05) 1px, transparent 1px);
+      linear-gradient(rgba(63, 42, 28, 0.045) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(63, 42, 28, 0.045) 1px, transparent 1px);
     background-size: 60px 60px;
+  }
+
+  .site-shell {
+    position: relative;
+    isolation: isolate;
+    min-height: 100vh;
+    background-color: var(--surface-warm);
+    color: inherit;
+  }
+
+  .site-shell::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    background-image:
+      radial-gradient(ellipse 70% 50% at 12% 8%, rgba(63, 42, 28, 0.07), transparent 55%),
+      radial-gradient(ellipse 55% 45% at 88% 92%, rgba(174, 33, 25, 0.045), transparent 50%),
+      radial-gradient(ellipse 40% 30% at 70% 20%, rgba(107, 78, 61, 0.04), transparent 60%),
+      var(--texture-noise);
+    background-size: auto, auto, auto, 180px 180px;
+    opacity: 0.55;
+  }
+
+  .panel-surface {
+    background-color: rgba(255, 252, 249, 0.92);
+    border: 1px solid rgba(63, 42, 28, 0.12);
+    box-shadow: 0 8px 28px rgba(63, 42, 28, 0.05);
+  }
+
+  .accent-brown-bar {
+    box-shadow: inset 3px 0 0 0 var(--brand-brown);
   }
 
   .perspective-card {
@@ -93,15 +134,29 @@
   }
 }
 
+/* Light theme overrides for customer-facing pages. */
+.customer-site .btn-outline {
+  border-color: rgba(63, 42, 28, 0.22);
+  color: #6b4e3d;
+}
+
+.customer-site .btn-outline:hover {
+  border-color: #AE2119;
+  color: #AE2119;
+}
+
 ::-webkit-scrollbar {
   width: 4px;
 }
 ::-webkit-scrollbar-track {
-  background: #000;
+  background: #efe8e1;
 }
 ::-webkit-scrollbar-thumb {
-  background: #AE2119;
+  background: #3f2a1c;
   border-radius: 2px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #AE2119;
 }
 
 @keyframes speedLine {
@@ -112,4 +167,11 @@
 
 .speed-line {
   animation: speedLine 1.8s ease-in-out infinite;
+}
+
+/* Logo sits on a black plate so colors read cleanly (no glow) */
+.brand-logo {
+  background-color: #000000;
+  padding: 0.35rem 0.55rem;
+  object-fit: contain;
 }

@@ -16,7 +16,7 @@ export default function BookingForm() {
   };
 
   const inputClass =
-    'w-full min-w-0 max-w-full box-border bg-white/5 border border-white/10 text-white text-sm outline-none focus:border-brand-red/50 transition-colors [color-scheme:dark]';
+    'w-full min-w-0 max-w-full box-border bg-white border border-black/10 text-gray-900 text-sm outline-none focus:border-brand-red/50 transition-colors [color-scheme:light]';
 
   return (
     <motion.div
@@ -32,7 +32,7 @@ export default function BookingForm() {
       />
 
       <div
-        className="relative w-full min-w-0 overflow-hidden bg-black/60 backdrop-blur-2xl border border-white/10 p-4 sm:p-6 md:p-8 hover:border-white/20 transition-colors duration-300"
+        className="relative w-full min-w-0 overflow-hidden bg-white/75 backdrop-blur-2xl border border-black/10 p-4 sm:p-6 md:p-8 hover:border-black/20 transition-colors duration-300"
         style={{ boxShadow: '0 25px 80px rgba(0,0,0,0.8), inset 0 1px 0 rgba(255,255,255,0.08)' }}
       >
         <motion.div
@@ -52,7 +52,7 @@ export default function BookingForm() {
                   onChange={e => setLocation(e.target.value)}
                   className={`${inputClass} pl-10 pr-4 py-3 appearance-none cursor-pointer`}
                 >
-                  <option value="Accra" className="bg-black">Accra</option>
+                  <option value="Accra" className="bg-white">Accra</option>
                 </select>
               </div>
             </div>

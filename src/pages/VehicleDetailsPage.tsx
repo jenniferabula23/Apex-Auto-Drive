@@ -55,9 +55,9 @@ export default function VehicleDetailsPage() {
 
   if (!vehicle) {
     return (
-      <div className="min-h-screen bg-black flex items-center justify-center pt-20">
+      <div className="min-h-screen flex items-center justify-center pt-20">
         <div className="text-center">
-          <h2 className="text-white text-2xl mb-4">Vehicle Not Found</h2>
+          <h2 className="text-gray-900 text-2xl mb-4">Vehicle Not Found</h2>
           <Link to="/vehicles" className="btn-primary">Browse Fleet</Link>
         </div>
       </div>
@@ -100,16 +100,16 @@ export default function VehicleDetailsPage() {
     : null;
 
   return (
-    <div id="vehicle-top" className="min-h-screen bg-black pt-20">
+    <div id="vehicle-top" className="min-h-screen pt-20">
       {/* Breadcrumb */}
-      <div className="border-b border-white/5 bg-[#050505]">
+      <div className="border-b border-black/10 bg-white">
         <div className="max-w-7xl mx-auto px-4 lg:px-8 py-4">
           <div className="flex items-center gap-2 text-sm text-brand-gray">
-            <Link to="/" className="hover:text-white transition-colors">Home</Link>
+            <Link to="/" className="hover:text-brand-red transition-colors">Home</Link>
             <span>/</span>
-            <Link to="/vehicles" className="hover:text-white transition-colors">Vehicles</Link>
+            <Link to="/vehicles" className="hover:text-brand-red transition-colors">Vehicles</Link>
             <span>/</span>
-            <span className="text-white">{vehicle.name}</span>
+            <span className="text-gray-900">{vehicle.name}</span>
           </div>
         </div>
       </div>
@@ -122,7 +122,7 @@ export default function VehicleDetailsPage() {
               initial={{ opacity: 0, scale: 0.95 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
-              className="relative overflow-hidden mb-4 bg-[#0a0a0a] border border-white/5 group"
+              className="relative overflow-hidden mb-4 bg-white border border-black/10 group"
               style={{
                 boxShadow: `0 30px 80px ${vehicle.glowColor}40, inset 0 0 30px ${vehicle.glowColor}10`,
               }}
@@ -197,10 +197,10 @@ export default function VehicleDetailsPage() {
                     type="button"
                     whileHover={{ scale: 1.02 }}
                     onClick={() => setActiveImage(i)}
-                    className={`group bg-[#0a0a0a] border overflow-hidden transition-all duration-300 ${
+                    className={`group bg-white border overflow-hidden transition-all duration-300 ${
                       i === activeImage
                         ? 'border-brand-red shadow-[0_0_15px_rgba(174,33,25,0.35)]'
-                        : 'border-white/10 hover:border-brand-red/30 opacity-80 hover:opacity-100'
+                        : 'border-black/10 hover:border-brand-red/30 opacity-80 hover:opacity-100'
                     }`}
                   >
                     <img
@@ -222,12 +222,12 @@ export default function VehicleDetailsPage() {
               )}
               <div className="flex items-center gap-1">
                 <Star className="w-4 h-4 text-accent-yellow fill-accent-yellow" />
-                <span className="text-white text-sm font-semibold">{vehicle.rating}</span>
+                <span className="text-gray-900 text-sm font-semibold">{vehicle.rating}</span>
                 <span className="text-brand-gray text-xs">({vehicle.reviews} reviews)</span>
               </div>
             </div>
 
-            <h1 className="font-heading font-black text-4xl text-white mb-2">{vehicle.name}</h1>
+            <h1 className="font-heading font-black text-4xl text-gray-900 mb-2">{vehicle.name}</h1>
             <p className="text-brand-gray mb-1">{vehicle.model} · {vehicle.year}</p>
             <div className="flex items-center gap-1 text-brand-gray text-sm mb-6">
               <MapPin className="w-4 h-4 text-brand-red" />
@@ -239,7 +239,7 @@ export default function VehicleDetailsPage() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="grid grid-cols-4 gap-4 mb-8 p-5 bg-[#0a0a0a] border border-white/5 hover:border-brand-red/30 transition-colors"
+              className="grid grid-cols-4 gap-4 mb-8 p-5 bg-white border border-black/10 hover:border-brand-red/30 transition-colors"
             >
               {[
                 { icon: Users, label: 'Seats', value: String(vehicle.seats) },
@@ -256,7 +256,7 @@ export default function VehicleDetailsPage() {
                   className="text-center"
                 >
                   <spec.icon className="w-5 h-5 text-brand-red mx-auto mb-2" />
-                  <div className="text-white text-sm font-semibold">{spec.value}</div>
+                  <div className="text-gray-900 text-sm font-semibold">{spec.value}</div>
                   <div className="text-brand-gray text-xs">{spec.label}</div>
                 </motion.div>
               ))}
@@ -274,8 +274,8 @@ export default function VehicleDetailsPage() {
                     onClick={() => setSelectedLocation(loc.key)}
                     className={`px-3 py-3 text-xs transition-all border ${
                       selectedLocation === loc.key
-                        ? 'border-brand-red bg-brand-red/10 text-white'
-                        : 'border-white/10 text-brand-gray hover:border-white/30'
+                        ? 'border-brand-red bg-brand-red/10 text-brand-red'
+                        : 'border-black/10 text-brand-gray hover:border-brand-red/30 hover:text-brand-red'
                     }`}
                   >
                     <div className="font-semibold">{loc.label}</div>
@@ -288,7 +288,7 @@ export default function VehicleDetailsPage() {
             </div>
 
             {destinationHint && (
-              <div className="mb-6 bg-[#0a0a0a] border border-white/5 p-5">
+              <div className="mb-6 bg-white border border-black/10 p-5">
                 <label className="text-xs text-brand-gray uppercase tracking-widest block mb-2">
                   {destinationHint.label}
                 </label>
@@ -301,13 +301,13 @@ export default function VehicleDetailsPage() {
                   value={destinationDetails}
                   onChange={e => setDestinationDetails(e.target.value)}
                   placeholder={destinationHint.placeholder}
-                  className="w-full bg-[#0a0a0a] border border-white/10 text-white px-3 py-2.5 text-sm outline-none focus:border-brand-red/50 placeholder-brand-gray/40"
+                  className="w-full bg-white border border-black/10 text-gray-900 px-3 py-2.5 text-sm outline-none focus:border-brand-red/50 placeholder-brand-gray/40"
                 />
               </div>
             )}
 
             {/* Rental Days */}
-            <div className="mb-6 bg-[#0a0a0a] border border-white/5 p-5">
+            <div className="mb-6 bg-white border border-black/10 p-5">
               <label className="text-xs text-brand-gray uppercase tracking-widest block mb-3">Booking Details</label>
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                 <div className="min-w-0">
@@ -317,7 +317,7 @@ export default function VehicleDetailsPage() {
                     value={pickupDate}
                     onChange={e => setPickupDate(e.target.value)}
                     min={new Date().toISOString().split('T')[0]}
-                    className="w-full min-w-0 bg-[#0a0a0a] border border-white/10 text-white px-3 py-2.5 text-sm outline-none focus:border-brand-red/50 [color-scheme:dark]"
+                    className="w-full min-w-0 bg-white border border-black/10 text-gray-900 px-3 py-2.5 text-sm outline-none focus:border-brand-red/50 [color-scheme:light]"
                   />
                 </div>
                 <div className="min-w-0">
@@ -326,7 +326,7 @@ export default function VehicleDetailsPage() {
                     type="time"
                     value={pickupTime}
                     onChange={e => setPickupTime(e.target.value)}
-                    className="w-full min-w-0 bg-[#0a0a0a] border border-white/10 text-white px-3 py-2.5 text-sm outline-none focus:border-brand-red/50 [color-scheme:dark]"
+                    className="w-full min-w-0 bg-white border border-black/10 text-gray-900 px-3 py-2.5 text-sm outline-none focus:border-brand-red/50 [color-scheme:light]"
                   />
                 </div>
                 <div className="min-w-0">
@@ -342,14 +342,14 @@ export default function VehicleDetailsPage() {
                       }
                     }}
                     min={pickupDate || new Date().toISOString().split('T')[0]}
-                    className="w-full min-w-0 bg-[#0a0a0a] border border-white/10 text-white px-3 py-2.5 text-sm outline-none focus:border-brand-red/50 [color-scheme:dark]"
+                    className="w-full min-w-0 bg-white border border-black/10 text-gray-900 px-3 py-2.5 text-sm outline-none focus:border-brand-red/50 [color-scheme:light]"
                   />
                 </div>
               </div>
             </div>
 
             {/* Price Summary */}
-            <div className="bg-[#0a0a0a] border border-white/5 p-5 mb-6">
+            <div className="bg-white border border-black/10 p-5 mb-6">
               {isRegionalLocation(selectedLocation) && (
                 <p className="text-brand-gray text-xs mb-3">
                   Estimated total based on regional starting rate. Final invoice may reflect your exact destination.
@@ -359,10 +359,10 @@ export default function VehicleDetailsPage() {
                 <span className="text-brand-gray text-sm">
                   {isRegionalLocation(selectedLocation) ? 'From ' : ''}{format(pricePerDay)} × {rentalDays} day{rentalDays > 1 ? 's' : ''}
                 </span>
-                <span className="text-white">{format(total)}</span>
+                <span className="text-gray-900">{format(total)}</span>
               </div>
-              <div className="border-t border-white/10 pt-2 flex justify-between items-center">
-                <span className="text-white font-semibold">Total{isRegionalLocation(selectedLocation) ? ' (from)' : ''}</span>
+              <div className="border-t border-black/10 pt-2 flex justify-between items-center">
+                <span className="text-gray-900 font-semibold">Total{isRegionalLocation(selectedLocation) ? ' (from)' : ''}</span>
                 <span className="text-brand-red font-heading font-bold text-2xl">{format(total)}</span>
               </div>
             </div>
@@ -401,7 +401,7 @@ export default function VehicleDetailsPage() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
           >
-            <h2 className="font-heading font-bold text-2xl text-white mb-4">Vehicle Description</h2>
+            <h2 className="font-heading font-bold text-2xl text-gray-900 mb-4">Vehicle Description</h2>
             <p className="text-brand-gray leading-relaxed">{vehicle.description}</p>
           </motion.div>
           <motion.div
@@ -409,7 +409,7 @@ export default function VehicleDetailsPage() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
           >
-            <h2 className="font-heading font-bold text-2xl text-white mb-4">Features & Amenities</h2>
+            <h2 className="font-heading font-bold text-2xl text-gray-900 mb-4">Features & Amenities</h2>
             <div className="grid grid-cols-2 gap-3">
               {vehicle.features.map((feat, i) => (
                 <motion.div
@@ -433,9 +433,9 @@ export default function VehicleDetailsPage() {
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="bg-[#0a0a0a] border border-white/5 p-8 mb-16 hover:border-brand-red/20 transition-colors"
+          className="bg-white border border-black/10 p-8 mb-16 hover:border-brand-red/20 transition-colors"
         >
-          <h2 className="font-heading font-bold text-2xl text-white mb-6 flex items-center gap-3">
+          <h2 className="font-heading font-bold text-2xl text-gray-900 mb-6 flex items-center gap-3">
             <ShieldCheck className="w-6 h-6 text-brand-red" />
             Rental Terms & Conditions
           </h2>
@@ -453,7 +453,7 @@ export default function VehicleDetailsPage() {
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1 }}
               >
-                <h4 className="font-heading font-semibold text-white text-sm mb-3 text-brand-red">{section.title}</h4>
+                <h4 className="font-heading font-semibold text-sm mb-3 text-brand-red">{section.title}</h4>
                 <ul className="space-y-1">
                   {section.items.map((item, j) => (
                     <motion.li
@@ -480,7 +480,7 @@ export default function VehicleDetailsPage() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
         >
-          <h2 className="font-heading font-bold text-2xl text-white mb-8">Related Vehicles</h2>
+          <h2 className="font-heading font-bold text-2xl text-gray-900 mb-8">Related Vehicles</h2>
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {related.map((v, i) => <VehicleCard key={v.id} vehicle={v} index={i} />)}
           </div>
@@ -503,7 +503,7 @@ export default function VehicleDetailsPage() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <h3 className="font-heading font-bold text-3xl text-white mb-4">Ready to Drive?</h3>
+            <h3 className="font-heading font-bold text-3xl text-gray-900 mb-4">Ready to Drive?</h3>
             <p className="text-brand-gray mb-8">Book the {vehicle.name} today and experience premium mobility.</p>
             <motion.button
               onClick={handleBookNow}

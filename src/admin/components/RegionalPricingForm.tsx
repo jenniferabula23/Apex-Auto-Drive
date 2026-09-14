@@ -18,7 +18,7 @@ export default function RegionalPricingForm({ value, onChange }: Props) {
   return (
     <div className="space-y-6">
       <div className={adminAlert}>
-        <p className="text-white text-sm font-semibold mb-1">Accra — fixed pickup rate</p>
+        <p className="text-gray-900 text-sm font-semibold mb-1">Accra — fixed pickup rate</p>
         <p className="text-brand-gray text-xs mb-3">
           All vehicles are picked up in Accra. This is the fixed daily rate for Accra rentals.
         </p>
@@ -35,14 +35,14 @@ export default function RegionalPricingForm({ value, onChange }: Props) {
       </div>
 
       <div>
-        <p className="text-white text-sm font-semibold mb-1">Regional pricing (from rates)</p>
+        <p className="text-gray-900 text-sm font-semibold mb-1">Regional pricing (from rates)</p>
         <p className="text-brand-gray text-xs mb-4">
           Optional higher rates when the vehicle travels outside Accra. Shown as &quot;From&quot; on the vehicle detail page.
         </p>
         <div className="grid sm:grid-cols-2 gap-4">
           {regionalKeys.map(region => (
             <div key={region.key} className={`${adminPanel} p-4`}>
-              <label className="text-sm text-white block mb-2">{region.label}</label>
+              <label className="text-sm text-gray-900 block mb-2">{region.label}</label>
               <div className="flex items-center gap-2">
                 <span className="text-brand-gray text-xs">From GHS</span>
                 <input

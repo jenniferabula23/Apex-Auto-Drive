@@ -35,13 +35,13 @@ export default function Support() {
             className="relative group"
           >
             <div className="absolute -inset-px bg-gradient-to-br from-brand-red/30 to-orange-500/10 opacity-0 group-hover:opacity-100 blur transition-opacity duration-500" />
-            <div className="relative bg-black/50 backdrop-blur-xl border border-white/10 p-6 h-full flex flex-col">
+            <div className="relative bg-white border border-black/10 p-6 h-full flex flex-col">
               <div className="w-11 h-11 bg-brand-red/10 border border-brand-red/30 flex items-center justify-center mb-4">
                 <c.icon className="w-5 h-5 text-brand-red" />
               </div>
-              <h4 className="font-heading font-bold text-white mb-1">{c.title}</h4>
+              <h4 className="font-heading font-bold text-gray-900 mb-1">{c.title}</h4>
               <p className="text-sm text-brand-gray mb-5 flex-1">{c.desc}</p>
-              <button className="inline-flex items-center gap-2 text-sm text-white hover:text-brand-red transition-colors">
+              <button className="inline-flex items-center gap-2 text-sm text-gray-900 hover:text-brand-red transition-colors">
                 {c.cta} <ArrowRight className="w-3.5 h-3.5" />
               </button>
             </div>
@@ -50,7 +50,7 @@ export default function Support() {
       </div>
 
       <div>
-        <h3 className="font-heading font-semibold text-white mb-4">Frequently Asked</h3>
+        <h3 className="font-heading font-semibold text-gray-900 mb-4">Frequently Asked</h3>
         <div className="space-y-2">
           {faqs.map((f, i) => (
             <motion.details
@@ -58,9 +58,9 @@ export default function Support() {
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: i * 0.05 }}
-              className="bg-black/40 border border-white/10 group [&[open]]:border-brand-red/40"
+              className="bg-white border border-black/10 group [&[open]]:border-brand-red/40"
             >
-              <summary className="flex items-center justify-between cursor-pointer px-5 py-4 text-white text-sm">
+              <summary className="flex items-center justify-between cursor-pointer px-5 py-4 text-gray-900 text-sm">
                 {f.q}
                 <ArrowRight className="w-4 h-4 text-brand-red transition-transform group-open:rotate-90" />
               </summary>

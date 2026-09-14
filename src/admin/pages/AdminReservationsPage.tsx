@@ -54,7 +54,7 @@ function ReservationManagePanel({
   };
 
   return (
-    <div className="mt-4 pt-4 border-t border-white/10 grid sm:grid-cols-2 gap-4">
+    <div className="mt-4 pt-4 border-t border-gray-200 grid sm:grid-cols-2 gap-4">
       <div className="space-y-2">
         <p className="text-[10px] text-brand-gray uppercase tracking-widest">Booking status</p>
         <p className="text-xs text-brand-gray mb-2">
@@ -172,14 +172,14 @@ export default function AdminReservationsPage() {
                 className={`${adminCard} p-5`}
               >
                 <div className="flex flex-col lg:flex-row gap-5">
-                  <img src={res.vehicleImage} alt={res.vehicleName} className="w-full lg:w-32 h-24 object-cover border border-white/10" />
+                  <img src={res.vehicleImage} alt={res.vehicleName} className="w-full lg:w-32 h-24 object-cover border border-gray-200" />
                   <div className="flex-1 min-w-0">
                     <div className="flex flex-wrap items-center gap-2 mb-2">
                       <span className="font-mono text-xs text-brand-red">{res.bookingRef}</span>
                       <AdminStatusBadge label={reservationStatusLabel[res.status]} tone={statusTone(res.status)} />
                       <AdminStatusBadge label={paymentStatusLabel[res.paymentStatus]} tone={paymentTone(res.paymentStatus)} />
                     </div>
-                    <h3 className="text-white font-semibold">{res.customerName}</h3>
+                    <h3 className="text-gray-900 font-semibold">{res.customerName}</h3>
                     <p className="text-brand-gray text-sm">{res.vehicleName} · {res.rentalModule.replace('_', ' ')}</p>
                     <p className="text-brand-gray text-xs mt-1">
                       {res.pickupLocation} · {res.pickupDate}
@@ -189,7 +189,7 @@ export default function AdminReservationsPage() {
                     {res.notes && <p className="text-brand-gray text-xs mt-2 italic">{res.notes}</p>}
                   </div>
                   <div className="flex flex-col items-start lg:items-end gap-3">
-                    <p className="text-white font-heading font-bold text-xl">{formatCurrency(res.totalAmount)}</p>
+                    <p className="text-gray-900 font-heading font-bold text-xl">{formatCurrency(res.totalAmount)}</p>
                     <button
                       type="button"
                       onClick={() => setExpandedId(isExpanded ? null : res.id)}

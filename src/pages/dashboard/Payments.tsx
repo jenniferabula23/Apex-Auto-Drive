@@ -68,16 +68,16 @@ export default function Payments() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.1 }}
-          className="bg-black/50 backdrop-blur-xl border border-white/10 p-7 flex flex-col justify-between"
+          className="bg-white border border-black/10 p-7 flex flex-col justify-between"
         >
           <div>
             <p className="text-[10px] text-brand-gray uppercase tracking-[0.4em]">Lifetime Spend</p>
-            <p className="font-heading font-black text-4xl text-white mt-3">
+            <p className="font-heading font-black text-4xl text-gray-900 mt-3">
               {format(totalSpent)}
             </p>
             <p className="text-brand-gray text-sm mt-1">{bookings.length} total bookings</p>
           </div>
-          <button className="mt-6 inline-flex items-center justify-center gap-2 border border-white/10 hover:border-brand-red/50 text-white px-4 py-2.5 text-sm transition-all">
+          <button className="mt-6 inline-flex items-center justify-center gap-2 border border-black/10 hover:border-brand-red/50 text-gray-900 px-4 py-2.5 text-sm transition-all">
             <Plus className="w-4 h-4" /> Add Payment Method
           </button>
         </motion.div>
@@ -85,7 +85,7 @@ export default function Payments() {
 
       {/* Transaction list */}
       <div>
-        <h3 className="font-heading font-semibold text-white mb-4 flex items-center gap-2">
+        <h3 className="font-heading font-semibold text-gray-900 mb-4 flex items-center gap-2">
           <Receipt className="w-4 h-4 text-brand-red" /> Transactions
         </h3>
         {loading ? (
@@ -93,7 +93,7 @@ export default function Payments() {
             <Loader2 className="w-6 h-6 text-brand-red animate-spin" />
           </div>
         ) : bookings.length === 0 ? (
-          <div className="bg-black/40 border border-white/10 p-8 text-center text-brand-gray">No transactions yet.</div>
+          <div className="bg-white border border-black/10 p-8 text-center text-brand-gray">No transactions yet.</div>
         ) : (
           <div className="space-y-2">
             {bookings.map((b, i) => (
@@ -102,16 +102,16 @@ export default function Payments() {
                 initial={{ opacity: 0, x: -10 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: i * 0.04 }}
-                className="grid grid-cols-[1fr_auto_auto] gap-4 items-center bg-black/40 border border-white/5 hover:border-brand-red/30 px-4 py-3 transition-colors"
+                className="grid grid-cols-[1fr_auto_auto] gap-4 items-center bg-white border border-black/10 hover:border-brand-red/30 px-4 py-3 transition-colors"
               >
                 <div>
-                  <p className="text-white text-sm font-medium">{b.vehicle_name}</p>
+                  <p className="text-gray-900 text-sm font-medium">{b.vehicle_name}</p>
                   <p className="text-xs text-brand-gray">{b.booking_ref} · {new Date(b.created_at).toLocaleDateString()}</p>
                 </div>
                 <span className={`px-2.5 py-1 text-[10px] uppercase tracking-widest border ${
                   b.payment_status === 'paid' ? 'border-yellow-500/40 text-yellow-400 bg-yellow-500/10' :
                   b.payment_status === 'invoiced' ? 'border-orange-500/40 text-orange-400 bg-orange-500/10' :
-                  'border-white/20 text-brand-gray'
+                  'border-black/20 text-brand-gray'
                 }`}>
                   {b.payment_status}
                 </span>

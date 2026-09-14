@@ -34,9 +34,9 @@ export default function MyRentals() {
           <Loader2 className="w-6 h-6 text-brand-red animate-spin" />
         </div>
       ) : bookings.length === 0 ? (
-        <div className="bg-black/40 backdrop-blur-xl border border-white/10 p-10 text-center">
+        <div className="bg-white border border-black/10 p-10 text-center">
           <Car className="w-10 h-10 text-brand-red mx-auto mb-4" />
-          <p className="text-white">No active rentals.</p>
+          <p className="text-gray-900">No active rentals.</p>
         </div>
       ) : (
         <div className="grid gap-5">
@@ -50,10 +50,10 @@ export default function MyRentals() {
               className="relative group"
             >
               <div className="absolute -inset-px bg-gradient-to-r from-brand-red/30 to-orange-500/10 opacity-0 group-hover:opacity-100 blur transition-opacity duration-500" />
-              <div className="relative grid md:grid-cols-[200px_1fr_auto] gap-6 bg-black/60 backdrop-blur-xl border border-white/10 p-5 items-center">
+              <div className="relative grid md:grid-cols-[200px_1fr_auto] gap-6 bg-white border border-black/10 p-5 items-center">
                 <img src={b.vehicle_image} alt={b.vehicle_name} className="w-full h-32 object-cover" />
                 <div>
-                  <h4 className="font-heading font-bold text-xl text-white">{b.vehicle_name}</h4>
+                  <h4 className="font-heading font-bold text-xl text-gray-900">{b.vehicle_name}</h4>
                   <p className="text-xs text-brand-gray mb-3">{b.booking_ref}</p>
                   <div className="flex flex-wrap gap-4 text-xs text-brand-gray">
                     <span className="flex items-center gap-1.5"><Calendar className="w-3.5 h-3.5 text-brand-red" />{b.pickup_date} → {b.return_date}</span>

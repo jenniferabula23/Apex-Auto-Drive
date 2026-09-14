@@ -70,14 +70,14 @@ function AppShell() {
 
   if (isAdminRoute) {
     return (
-      <div className="min-h-screen bg-black text-white">
+      <div className="site-shell text-gray-900">
         <AnimatedRoutes />
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen bg-black text-white relative">
+    <div className="site-shell text-brand-gray customer-site">
       <Preloader />
       <FloatingBackground />
       <Navbar />

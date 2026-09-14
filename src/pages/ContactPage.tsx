@@ -12,11 +12,11 @@ export default function ContactPage() {
   };
 
   return (
-    <div className="min-h-screen bg-black pt-20">
+    <div className="min-h-screen pt-20">
       {/* Hero */}
       <div className="relative py-24 overflow-hidden">
         <div className="absolute inset-0 grid-lines opacity-20" />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/60 to-black" />
+        <div className="absolute inset-0 bg-gradient-to-b from-white/95 to-white" />
         <div className="absolute inset-0 bg-gradient-to-r from-brand-red/10 to-transparent" />
 
         <div className="relative z-10 max-w-4xl mx-auto px-4 text-center">
@@ -24,7 +24,7 @@ export default function ContactPage() {
             <span className="text-brand-red text-xs tracking-widest uppercase border border-brand-red/30 px-4 py-2">
               Get In Touch
             </span>
-            <h1 className="font-heading font-black text-6xl text-white mt-6 mb-4">
+            <h1 className="font-heading font-black text-6xl text-gray-900 mt-6 mb-4">
               Contact <span className="text-brand-red">Us</span>
             </h1>
             <p className="text-brand-gray text-lg max-w-xl mx-auto">
@@ -38,7 +38,7 @@ export default function ContactPage() {
         <div className="grid lg:grid-cols-2 gap-12">
           {/* Contact Info */}
           <motion.div initial={{ opacity: 0, x: -40 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}>
-            <h2 className="font-heading font-bold text-3xl text-white mb-8">
+            <h2 className="font-heading font-bold text-3xl text-gray-900 mb-8">
               Let's Start a <span className="text-brand-red">Conversation</span>
             </h2>
 
@@ -54,7 +54,7 @@ export default function ContactPage() {
                     <item.icon className="w-4 h-4 text-brand-red" />
                   </div>
                   <div>
-                    <p className="text-white font-semibold text-sm">{item.title}</p>
+                    <p className="text-gray-900 font-semibold text-sm">{item.title}</p>
                     <p className="text-brand-gray text-sm">{item.info}</p>
                   </div>
                 </div>
@@ -62,7 +62,7 @@ export default function ContactPage() {
             </div>
 
             {/* Map placeholder */}
-            <div className="relative h-64 bg-[#0a0a0a] border border-white/5 overflow-hidden">
+            <div className="relative h-64 bg-white border border-black/10 overflow-hidden">
               <div className="absolute inset-0 grid-lines opacity-30" />
               <div className="absolute inset-0 flex items-center justify-center">
                 <div className="text-center">
@@ -75,7 +75,7 @@ export default function ContactPage() {
 
           {/* Form */}
           <motion.div initial={{ opacity: 0, x: 40 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}>
-            <div className="bg-[#0a0a0a] border border-white/5 p-8">
+            <div className="bg-white border border-black/10 p-8">
               <div className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-brand-red to-transparent" />
 
               {submitted ? (
@@ -83,12 +83,12 @@ export default function ContactPage() {
                   <div className="w-16 h-16 bg-brand-red/10 border border-brand-red flex items-center justify-center mx-auto mb-4 shadow-[0_0_30px_rgba(174,33,25,0.3)]">
                     <Check className="w-7 h-7 text-brand-red" />
                   </div>
-                  <h3 className="font-heading font-bold text-white text-xl mb-2">Message Sent!</h3>
+                  <h3 className="font-heading font-bold text-gray-900 text-xl mb-2">Message Sent!</h3>
                   <p className="text-brand-gray text-sm">We'll get back to you within 24 hours.</p>
                 </div>
               ) : (
                 <>
-                  <h3 className="font-heading font-bold text-white text-xl mb-6">Send a Message</h3>
+                  <h3 className="font-heading font-bold text-gray-900 text-xl mb-6">Send a Message</h3>
                   <form onSubmit={handleSubmit} className="space-y-4">
                     <div className="grid sm:grid-cols-2 gap-4">
                       <div>
@@ -98,7 +98,7 @@ export default function ContactPage() {
                           required
                           value={form.name}
                           onChange={e => setForm(f => ({ ...f, name: e.target.value }))}
-                          className="w-full bg-black border border-white/10 text-white px-4 py-3 text-sm outline-none focus:border-brand-red/50 placeholder-brand-gray/30"
+                          className="w-full bg-white border border-black/10 text-gray-900 px-4 py-3 text-sm outline-none focus:border-brand-red/50 placeholder-brand-gray/30"
                           placeholder="Your name"
                         />
                       </div>
@@ -108,7 +108,7 @@ export default function ContactPage() {
                           type="tel"
                           value={form.phone}
                           onChange={e => setForm(f => ({ ...f, phone: e.target.value }))}
-                          className="w-full bg-black border border-white/10 text-white px-4 py-3 text-sm outline-none focus:border-brand-red/50 placeholder-brand-gray/30"
+                          className="w-full bg-white border border-black/10 text-gray-900 px-4 py-3 text-sm outline-none focus:border-brand-red/50 placeholder-brand-gray/30"
                           placeholder="+233 XX XXX XXXX"
                         />
                       </div>
@@ -120,7 +120,7 @@ export default function ContactPage() {
                         required
                         value={form.email}
                         onChange={e => setForm(f => ({ ...f, email: e.target.value }))}
-                        className="w-full bg-black border border-white/10 text-white px-4 py-3 text-sm outline-none focus:border-brand-red/50 placeholder-brand-gray/30"
+                          className="w-full bg-white border border-black/10 text-gray-900 px-4 py-3 text-sm outline-none focus:border-brand-red/50 placeholder-brand-gray/30"
                         placeholder="your@email.com"
                       />
                     </div>
@@ -131,7 +131,7 @@ export default function ContactPage() {
                         rows={5}
                         value={form.message}
                         onChange={e => setForm(f => ({ ...f, message: e.target.value }))}
-                        className="w-full bg-black border border-white/10 text-white px-4 py-3 text-sm outline-none focus:border-brand-red/50 placeholder-brand-gray/30 resize-none"
+                        className="w-full bg-white border border-black/10 text-gray-900 px-4 py-3 text-sm outline-none focus:border-brand-red/50 placeholder-brand-gray/30 resize-none"
                         placeholder="How can we help you?"
                       />
                     </div>

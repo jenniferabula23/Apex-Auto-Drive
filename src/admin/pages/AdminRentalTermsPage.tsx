@@ -7,16 +7,23 @@ import type { RentalModuleKey } from '../types';
 import { adminInput, adminPanel } from '../components/adminUi';
 
 export default function AdminRentalTermsPage() {
-  const [terms, setTerms] = useState(() => adminStore.getRentalTerms());
-  const [drafts, setDrafts] = useState(() =>
-    Object.fromEntries(terms.map(t => [t.key, t.content])) as Record<RentalModuleKey, string>,
+  const [terms, setTerms] = useState(() =>
+    adminStore.getRentalTerms(),
   );
+
+  const [drafts, setDrafts] = useState(() =>
+    Object.fromEntries(
+      terms.map(t => [t.key, t.content]),
+    ) as Record<RentalModuleKey, string>,
+  );
+
   const [saved, setSaved] = useState<string | null>(null);
 
   const handleSave = (key: RentalModuleKey) => {
     adminStore.updateRentalTerm(key, drafts[key]);
     setTerms(adminStore.getRentalTerms());
     setSaved(key);
+
     setTimeout(() => setSaved(null), 2000);
   };
 
@@ -38,24 +45,39 @@ export default function AdminRentalTermsPage() {
             className={`${adminPanel} p-6`}
           >
             <div className="flex items-center justify-between mb-3">
-              <h2 className="font-heading font-semibold text-white">{term.title}</h2>
-              <span className="text-brand-gray text-xs">
-                Updated {new Date(term.updatedAt).toLocaleDateString()}
+              <h2 className="font-heading font-semibold text-gray-900">
+                {term.title}
+              </h2>
+
+              <span className="text-gray-500 text-xs">
+                Updated{' '}
+                {new Date(
+                  term.updatedAt,
+                ).toLocaleDateString()}
               </span>
             </div>
+
             <textarea
               rows={5}
               value={drafts[term.key]}
-              onChange={e => setDrafts(prev => ({ ...prev, [term.key]: e.target.value }))}
+              onChange={e =>
+                setDrafts(prev => ({
+                  ...prev,
+                  [term.key]: e.target.value,
+                }))
+              }
               className={`${adminInput} resize-y`}
             />
+
             <button
               type="button"
               onClick={() => handleSave(term.key)}
               className="mt-4 btn-primary inline-flex items-center gap-2"
             >
               <Save className="w-4 h-4" />
-              {saved === term.key ? 'Saved' : 'Save terms'}
+              {saved === term.key
+                ? 'Saved'
+                : 'Save terms'}
             </button>
           </motion.div>
         ))}

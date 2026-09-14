@@ -6,6 +6,8 @@ import AdminLoginPage from './pages/AdminLoginPage';
 import AdminDashboardPage from './pages/AdminDashboardPage';
 import AdminVehiclesPage from './pages/AdminVehiclesPage';
 import AdminAddVehiclePage from './pages/AdminAddVehiclePage';
+import AdminCategoriesPage from './pages/AdminCategoriesPage';
+import AdminHeroPage from './pages/AdminHeroPage';
 import AdminRentalTermsPage from './pages/AdminRentalTermsPage';
 import AdminLocationsPage from './pages/AdminLocationsPage';
 import AdminAdminsPage from './pages/AdminAdminsPage';
@@ -26,23 +28,37 @@ export default function AdminApp() {
     <AdminAuthProvider>
       <Routes>
         <Route path="login" element={<AdminLoginPage />} />
+
         <Route element={<AdminAuthGuard />}>
           <Route element={<AdminLayout />}>
             <Route index element={<AdminDashboardPage />} />
+
             <Route path="vehicles" element={<AdminVehiclesPage />} />
             <Route path="vehicles/new" element={<AdminAddVehiclePage />} />
             <Route path="vehicles/:id/edit" element={<AdminAddVehiclePage />} />
+
+            <Route path="categories" element={<AdminCategoriesPage />} />
+            <Route path="hero" element={<AdminHeroPage />} />
+
             <Route path="rental-terms" element={<AdminRentalTermsPage />} />
             <Route path="locations" element={<AdminLocationsPage />} />
             <Route path="admins" element={<AdminAdminsPage />} />
             <Route path="drivers" element={<AdminDriversPage />} />
+
             <Route path="reservations" element={<AdminReservationsPage />} />
-            <Route path="reservations/new" element={<AdminCreateReservationPage />} />
+            <Route
+              path="reservations/new"
+              element={<AdminCreateReservationPage />}
+            />
+
             <Route path="payments" element={<AdminPaymentsPage />} />
+
             <Route path="users" element={<AdminUsersPage />} />
             <Route path="users/new" element={<AdminAddCustomerPage />} />
+
             <Route path="roles" element={<AdminRolesPage />} />
             <Route path="providers" element={<AdminProvidersPage />} />
+
             <Route path="activity" element={<AdminActivityPage />} />
           </Route>
         </Route>
@@ -53,6 +69,7 @@ export default function AdminApp() {
 
 function AdminActivityPage() {
   const logs = adminStore.getActivityLogs();
+
   return (
     <div className="space-y-8">
       <DashboardHeader
@@ -60,17 +77,28 @@ function AdminActivityPage() {
         title="Activity Logs"
         description="Recent admin actions stored locally until API sync."
       />
-      <div className={`${adminCard} divide-y divide-white/5`}>
+
+      <div className={`${adminCard} divide-y divide-gray-100`}>
         {logs.length === 0 ? (
-          <p className="p-6 text-brand-gray text-sm">No logs yet.</p>
+          <p className="p-6 text-brand-gray text-sm">
+            No logs yet.
+          </p>
         ) : (
           logs.map(log => (
-            <div key={log.id} className="px-5 py-4 flex justify-between gap-4 text-sm">
+            <div
+              key={log.id}
+              className="px-5 py-4 flex justify-between gap-4 text-sm"
+            >
               <div>
-                <p className="text-white">{log.action}</p>
-                <p className="text-brand-gray text-xs">{log.actor}</p>
+                <p className="text-gray-900">{log.action}</p>
+                <p className="text-brand-gray text-xs">
+                  {log.actor}
+                </p>
               </div>
-              <span className="text-brand-gray text-xs">{new Date(log.createdAt).toLocaleString()}</span>
+
+              <span className="text-brand-gray text-xs">
+                {new Date(log.createdAt).toLocaleString()}
+              </span>
             </div>
           ))
         )}

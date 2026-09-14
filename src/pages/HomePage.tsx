@@ -8,42 +8,8 @@ import {
 } from 'lucide-react';
 import BookingForm from '../components/BookingForm';
 import VehicleCard from '../components/VehicleCard';
-import { getFleetVehicles, getVehicleById } from '../data/vehicles';
-
-// ─── Hero Car Showcase ──────────────────────────────────────────────────────
-
-const heroCars = [
-  {
-    image: '/ChatGPT_Image_May_13,_2026,_10_25_47_PM.png',
-    name: 'Electric Blue Hypercar',
-    subtitle: 'Neon-Lit Performance',
-    glow: '#0088FF',
-  },
-  {
-    image: '/ChatGPT_Image_May_13,_2026,_10_26_47_PM.png',
-    name: 'Crimson Apex GT',
-    subtitle: 'Pure Italian Fury',
-    glow: '#CC0000',
-  },
-  {
-    image: '/ChatGPT_Image_May_13,_2026,_10_30_05_PM.png',
-    name: 'Rolls-Royce Wraith',
-    subtitle: 'Midnight Black Edition',
-    glow: '#888888',
-  },
-  {
-    image: '/ChatGPT_Image_May_13,_2026,_10_31_08_PM.png',
-    name: 'Rolls-Royce Ghost',
-    subtitle: 'Emerald Prestige',
-    glow: '#00AA44',
-  },
-  {
-    image: '/ChatGPT_Image_May_13,_2026,_10_33_52_PM.png',
-    name: 'Mercedes-AMG G63',
-    subtitle: 'Stealth Luxury SUV',
-    glow: '#AAAAAA',
-  },
-];
+import { getFleetVehicles, getVehicleById, getVehicleCategories } from '../data/vehicles';
+import { getHeroSlides } from '../data/hero';
 
 // Animated SVG background graphics
 function AnimatedBackgroundGraphics() {
@@ -115,12 +81,19 @@ function AnimatedBackgroundGraphics() {
 }
 
 function HeroSection() {
+  const heroCars = getHeroSlides();
   const [currentCar, setCurrentCar] = useState(0);
   const [entering, setEntering] = useState(false);
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
   const heroRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    if (heroCars.length === 0) return;
+    setCurrentCar(prev => (prev >= heroCars.length ? 0 : prev));
+  }, [heroCars.length]);
+
+  useEffect(() => {
+    if (heroCars.length === 0) return;
     const timer = setInterval(() => {
       setEntering(true);
       setTimeout(() => {
@@ -129,7 +102,7 @@ function HeroSection() {
       }, 500);
     }, 3500);
     return () => clearInterval(timer);
-  }, []);
+  }, [heroCars.length]);
 
   const handleMouseMove = (e: React.MouseEvent) => {
     if (!heroRef.current) return;
@@ -140,13 +113,14 @@ function HeroSection() {
     });
   };
 
-  const car = heroCars[currentCar];
+  const car = heroCars[currentCar] ?? heroCars[0];
+  if (!car) return null;
 
   return (
     <div
       ref={heroRef}
       onMouseMove={handleMouseMove}
-      className="relative min-h-screen flex items-center overflow-hidden bg-black"
+      className="relative min-h-screen flex items-center overflow-hidden"
     >
       {/* Animated grid background */}
       <div className="absolute inset-0 grid-lines opacity-40" />
@@ -202,7 +176,7 @@ function HeroSection() {
               initial={{ opacity: 0, y: 40 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.1 }}
-              className="font-heading font-black text-5xl md:text-7xl lg:text-[5.5rem] leading-none mb-6"
+              className="font-heading font-black text-5xl md:text-7xl lg:text-[5.5rem] leading-none mb-6 text-gray-900"
             >
               Drive{' '}
               <span className="text-brand-red" style={{ textShadow: '0 0 40px rgba(174,33,25,0.6)' }}>
@@ -234,7 +208,7 @@ function HeroSection() {
               </Link>
               <Link
                 to="/vehicles"
-                className="flex items-center gap-2 border border-white/20 text-white font-semibold px-8 py-4 hover:border-brand-red/50 hover:bg-brand-red/5 transition-all duration-300 group relative overflow-hidden"
+                className="flex items-center gap-2 border border-black/20 text-gray-900 font-semibold px-8 py-4 hover:border-brand-red/50 hover:bg-brand-red/5 transition-all duration-300 group relative overflow-hidden"
               >
                 <motion.span
                   animate={{ x: [0, 4, 0] }}
@@ -258,7 +232,7 @@ function HeroSection() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.6 }}
-              className="flex gap-8 mt-14 pt-8 border-t border-white/10"
+              className="flex gap-8 mt-14 pt-8 border-t border-brand-brown/15"
             >
               {[
                 { value: '50+', label: 'Vehicles Available' },
@@ -266,7 +240,7 @@ function HeroSection() {
                 { value: '98%', label: 'Customer Satisfaction' },
               ].map(stat => (
                 <div key={stat.label}>
-                  <div className="text-2xl font-heading font-bold text-white">{stat.value}</div>
+                  <div className="text-2xl font-heading font-bold text-gray-900">{stat.value}</div>
                   <div className="text-brand-gray text-xs mt-1">{stat.label}</div>
                 </div>
               ))}
@@ -338,8 +312,8 @@ function HeroSection() {
                   exit={{ opacity: 0, y: -10 }}
                   transition={{ delay: 0.2 }}
                 >
-                  <p className="text-white/50 text-xs tracking-widest uppercase">{car.subtitle}</p>
-                  <p className="text-white font-heading font-bold text-xl">{car.name}</p>
+                  <p className="text-brand-gray text-xs tracking-widest uppercase">{car.subtitle}</p>
+                  <p className="text-gray-900 font-heading font-bold text-xl">{car.name}</p>
                 </motion.div>
               </AnimatePresence>
             </div>
@@ -353,7 +327,7 @@ function HeroSection() {
                   className={`transition-all duration-300 ${
                     i === currentCar
                       ? 'w-8 h-1.5 bg-brand-red shadow-[0_0_15px_rgba(174,33,25,0.6)]'
-                      : 'w-2 h-1.5 bg-white/20 hover:bg-white/40'
+                      : 'w-2 h-1.5 bg-black/20 hover:bg-black/40'
                   }`}
                 />
               ))}
@@ -369,7 +343,7 @@ function HeroSection() {
               <Link
                 key={vehicle.id}
                 to={`/vehicles/${vehicle.id}`}
-                className="group bg-[#0a0a0a] border border-white/10 overflow-hidden hover:border-brand-red/40 transition-all duration-300"
+                className="group bg-white border border-brand-brown/15 overflow-hidden hover:border-brand-red/40 transition-all duration-300"
               >
                 <div className="relative h-20 sm:h-24 overflow-hidden">
                   <img
@@ -380,7 +354,7 @@ function HeroSection() {
                   <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
                 </div>
                 <div className="p-3">
-                  <p className="text-white text-xs sm:text-sm font-semibold truncate">{vehicle.name}</p>
+                  <p className="text-gray-900 text-xs sm:text-sm font-semibold truncate">{vehicle.name}</p>
                   <p className="text-brand-gray text-[10px] sm:text-xs mt-0.5">{vehicle.category}</p>
                 </div>
               </Link>
@@ -413,7 +387,7 @@ function StatsMarquee() {
   ];
 
   return (
-    <section className="py-16 bg-[#0a0a0a] border-y border-white/5">
+    <section className="py-16 bg-surface-paper/70 border-y border-brand-brown/10 backdrop-blur-[2px]">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -478,7 +452,7 @@ function HowItWorksSection() {
           <span className="text-brand-red text-xs tracking-widest uppercase border border-brand-red/30 px-4 py-2">
             Simple Process
           </span>
-          <h2 className="section-heading text-white mt-6">
+          <h2 className="section-heading text-gray-900 mt-6">
             Rent A Vehicle In{' '}
             <span className="text-brand-red">3 Simple Steps</span>
           </h2>
@@ -495,7 +469,7 @@ function HowItWorksSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.1 }}
-              className="bg-[#0a0a0a] border border-white/10 p-8 hover:border-brand-red/30 transition-colors duration-300"
+              className="bg-white border border-brand-brown/15 p-8 hover:border-brand-red/30 transition-colors duration-300"
             >
               <div className="flex items-center justify-between mb-6">
                 <div className="w-11 h-11 bg-brand-red/10 border border-brand-red/20 flex items-center justify-center">
@@ -503,7 +477,7 @@ function HowItWorksSection() {
                 </div>
                 <span className="text-brand-red text-xs font-bold tracking-widest">STEP {step.num}</span>
               </div>
-              <h3 className="font-heading font-bold text-white text-lg mb-3">{step.title}</h3>
+              <h3 className="font-heading font-bold text-gray-900 text-lg mb-3">{step.title}</h3>
               <p className="text-brand-gray text-sm leading-relaxed">{step.desc}</p>
             </motion.div>
           ))}
@@ -515,18 +489,17 @@ function HowItWorksSection() {
 
 // ─── Fleet Section ─────────────────────────────────────────────────────────
 
-const categories = ['All Vehicles', 'SUV', 'Economy', 'Luxury', 'Van'];
-
 function FleetSection() {
   const [activeCategory, setActiveCategory] = useState('All Vehicles');
 
   const fleet = getFleetVehicles();
+  const categories = ['All Vehicles', ...getVehicleCategories()];
   const filtered = activeCategory === 'All Vehicles'
     ? fleet
     : fleet.filter(v => v.category === activeCategory);
 
   return (
-    <section className="py-24 bg-[#050505] relative overflow-hidden">
+    <section className="py-24 relative overflow-hidden">
       <div className="absolute inset-0 grid-lines opacity-15" />
       <div className="max-w-7xl mx-auto px-4 lg:px-8 relative z-10">
         <motion.div
@@ -538,7 +511,7 @@ function FleetSection() {
           <span className="text-brand-red text-xs tracking-widest uppercase border border-brand-red/30 px-4 py-2">
             Our Fleet
           </span>
-          <h2 className="section-heading text-white mt-6">
+          <h2 className="section-heading text-gray-900 mt-6">
             Explore Our Premium{' '}
             <span className="text-brand-red">Fleet</span>
           </h2>
@@ -553,7 +526,7 @@ function FleetSection() {
               className={`px-5 py-2 text-sm font-medium tracking-wide transition-all duration-300 ${
                 activeCategory === cat
                   ? 'bg-brand-red text-white shadow-[0_0_20px_rgba(174,33,25,0.4)]'
-                  : 'border border-white/10 text-brand-gray hover:border-brand-red/30 hover:text-white'
+                  : 'border border-brand-brown/15 text-brand-gray hover:border-brand-red/30 hover:text-brand-red'
               }`}
             >
               {cat}
@@ -613,7 +586,7 @@ function WhyChooseUs() {
             <span className="text-brand-red text-xs tracking-widest uppercase border border-brand-red/30 px-4 py-2">
               Why Choose Us
             </span>
-            <h2 className="section-heading text-white mt-6 mb-4">
+            <h2 className="section-heading text-gray-900 mt-6 mb-4">
               The Apex Auto Drive{' '}
               <span className="text-brand-red">Advantage</span>
             </h2>
@@ -635,7 +608,7 @@ function WhyChooseUs() {
                     <f.icon className="w-4 h-4 text-brand-red" />
                   </div>
                   <div>
-                    <h4 className="font-heading font-semibold text-white text-sm mb-1">{f.title}</h4>
+                    <h4 className="font-heading font-semibold text-gray-900 text-sm mb-1">{f.title}</h4>
                     <p className="text-brand-gray text-xs leading-relaxed">{f.desc}</p>
                   </div>
                 </motion.div>
@@ -643,7 +616,7 @@ function WhyChooseUs() {
             </div>
 
             {/* Stats */}
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 pt-8 border-t border-white/10">
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 pt-8 border-t border-brand-brown/15">
               {stats.map(s => (
                 <div key={s.label}>
                   <div className="text-2xl font-heading font-bold text-brand-red">{s.value}</div>
@@ -731,7 +704,7 @@ function PromotionsSection() {
   }, [promos.length]);
 
   return (
-    <section className="py-24 bg-[#050505] relative overflow-hidden">
+    <section className="py-24 relative overflow-hidden">
       <div className="absolute inset-0 grid-lines opacity-15" />
       <div className="max-w-7xl mx-auto px-4 lg:px-8 relative z-10">
         <motion.div
@@ -743,7 +716,7 @@ function PromotionsSection() {
           <span className="text-brand-red text-xs tracking-widest uppercase border border-brand-red/30 px-4 py-2">
             Special Offers
           </span>
-          <h2 className="section-heading text-white mt-6">
+          <h2 className="section-heading text-gray-900 mt-6">
             Exclusive Deals &{' '}
             <span className="text-brand-red">Rental Offers</span>
           </h2>
@@ -763,7 +736,7 @@ function PromotionsSection() {
               onClick={() => setActive(i)}
               className="relative overflow-hidden group cursor-pointer border transition-all duration-500"
               style={{
-                borderColor: active === i ? promo.color : 'rgba(255,255,255,0.05)',
+                borderColor: active === i ? promo.color : 'rgba(0,0,0,0.1)',
                 boxShadow: active === i ? `0 0 40px ${promo.color}40, inset 0 0 20px ${promo.color}20` : 'none',
               }}
             >
@@ -812,11 +785,11 @@ function PromotionsSection() {
               </motion.div>
 
               {/* Content */}
-              <div className="p-6 bg-[#0a0a0a]">
+              <div className="p-6 bg-white">
                 {promo.vehicleName && (
                   <p className="text-brand-red text-xs uppercase tracking-widest mb-1">{promo.vehicleName}</p>
                 )}
-                <h3 className="font-heading font-bold text-white mb-2 text-lg">{promo.title}</h3>
+                <h3 className="font-heading font-bold text-gray-900 mb-2 text-lg">{promo.title}</h3>
                 <p className="text-brand-gray text-sm mb-4 leading-relaxed">{promo.desc}</p>
                 <motion.div
                   whileHover={{ x: 4 }}
@@ -845,7 +818,7 @@ function LocationBanner() {
       <span className="text-brand-red text-xs tracking-widest uppercase border border-brand-red/30 px-4 py-2">
         Explore Ghana With Apex Auto Drive
       </span>
-      <h3 className="font-heading font-bold text-white text-2xl mt-4 mb-3">
+      <h3 className="font-heading font-bold text-gray-900 text-2xl mt-4 mb-3">
         Book To Any Location Across Ghana
       </h3>
       <p className="text-brand-gray text-sm max-w-2xl mx-auto">
@@ -901,7 +874,7 @@ function LocationsSection() {
           <span className="text-brand-red text-xs tracking-widest uppercase border border-brand-red/30 px-4 py-2">
             Tourist Destinations
           </span>
-          <h2 className="section-heading text-white mt-6">
+          <h2 className="section-heading text-gray-900 mt-6">
             Popular Tourist Destinations{' '}
             <span className="text-brand-red">In Ghana</span>
           </h2>
@@ -986,7 +959,7 @@ function TestimonialsSection() {
   ];
 
   return (
-    <section className="py-24 bg-[#050505] relative overflow-hidden">
+    <section className="py-24 relative overflow-hidden">
       <div className="absolute inset-0 grid-lines opacity-15" />
       <div className="max-w-6xl mx-auto px-4 lg:px-8 relative z-10">
         <motion.div
@@ -998,7 +971,7 @@ function TestimonialsSection() {
           <span className="text-brand-red text-xs tracking-widest uppercase border border-brand-red/30 px-4 py-2">
             Testimonials
           </span>
-          <h2 className="section-heading text-white mt-6">
+          <h2 className="section-heading text-gray-900 mt-6">
             What Our <span className="text-brand-red">Clients Say</span>
           </h2>
           <p className="text-brand-gray mt-4 max-w-2xl mx-auto">
@@ -1019,7 +992,7 @@ function TestimonialsSection() {
               className={`text-left p-6 transition-all duration-300 border ${
                 i === active
                   ? 'border-brand-red bg-brand-red/5 shadow-[0_0_40px_rgba(174,33,25,0.3)]'
-                  : 'border-white/5 bg-[#0a0a0a] hover:border-white/10'
+                  : 'border-brand-brown/15 bg-white hover:border-black/20'
               }`}
             >
               {/* Stars */}
@@ -1040,14 +1013,14 @@ function TestimonialsSection() {
               </p>
 
               {/* Author */}
-              <div className="flex items-center gap-3 pt-4 border-t border-white/5">
+              <div className="flex items-center gap-3 pt-4 border-t border-brand-brown/15">
                 <img
                   src={testimonial.avatar}
                   alt={testimonial.name}
                   className="w-10 h-10 rounded-full object-cover"
                 />
                 <div>
-                  <p className="font-heading font-semibold text-white text-sm">{testimonial.name}</p>
+                  <p className="font-heading font-semibold text-gray-900 text-sm">{testimonial.name}</p>
                   <p className="text-brand-gray text-xs">{testimonial.role}</p>
                 </div>
               </div>
@@ -1063,7 +1036,7 @@ function TestimonialsSection() {
               onClick={() => setActive(i)}
               animate={{ width: i === active ? 32 : 8 }}
               className={`h-2 transition-all duration-300 rounded-full ${
-                i === active ? 'bg-brand-red shadow-[0_0_15px_rgba(174,33,25,0.6)]' : 'bg-white/20 hover:bg-white/40'
+                i === active ? 'bg-brand-red shadow-[0_0_15px_rgba(174,33,25,0.6)]' : 'bg-black/20 hover:bg-black/40'
               }`}
             />
           ))}
@@ -1099,7 +1072,7 @@ function FAQSection() {
           <span className="text-brand-red text-xs tracking-widest uppercase border border-brand-red/30 px-4 py-2">
             FAQ
           </span>
-          <h2 className="section-heading text-white mt-6">
+          <h2 className="section-heading text-gray-900 mt-6">
             Frequently Asked{' '}
             <span className="text-brand-red">Questions</span>
           </h2>
@@ -1121,13 +1094,13 @@ function FAQSection() {
               <motion.button
                 onClick={() => setOpen(open === i ? null : i)}
                 animate={{
-                  backgroundColor: open === i ? 'rgba(174,33,25,0.1)' : 'rgba(10,10,10,1)',
-                  borderColor: open === i ? 'rgba(174,33,25,0.4)' : 'rgba(255,255,255,0.05)',
+                  backgroundColor: open === i ? 'rgba(174,33,25,0.1)' : 'rgba(255,255,255,1)',
+                  borderColor: open === i ? 'rgba(174,33,25,0.4)' : 'rgba(0,0,0,0.1)',
                 }}
                 transition={{ duration: 0.2 }}
                 className="w-full flex items-center justify-between p-5 text-left border"
               >
-                <span className="font-heading font-medium text-white text-sm">{faq.q}</span>
+                <span className="font-heading font-medium text-gray-900 text-sm">{faq.q}</span>
                 <motion.div
                   animate={{ rotate: open === i ? 180 : 0 }}
                   transition={{ duration: 0.3 }}
@@ -1135,7 +1108,7 @@ function FAQSection() {
                   {open === i ? (
                     <ChevronUp className="w-5 h-5 text-brand-red flex-shrink-0" />
                   ) : (
-                    <ChevronDown className="w-5 h-5 text-brand-gray group-hover:text-white flex-shrink-0 transition-colors" />
+                    <ChevronDown className="w-5 h-5 text-brand-gray group-hover:text-brand-red flex-shrink-0 transition-colors" />
                   )}
                 </motion.div>
               </motion.button>
@@ -1184,7 +1157,7 @@ function CTASection() {
             opacity: 0.2,
           }}
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-black via-black/85 to-black/40" />
+        <div className="absolute inset-0 bg-gradient-to-r from-white via-white/90 to-white/70" />
         <div className="absolute inset-0 grid-lines opacity-20" />
 
         {/* Animated circles */}
@@ -1213,7 +1186,7 @@ function CTASection() {
             </span>
           </motion.div>
 
-          <h2 className="font-heading font-black text-5xl md:text-7xl text-white mb-6 leading-tight">
+          <h2 className="font-heading font-black text-5xl md:text-7xl text-gray-900 mb-6 leading-tight">
             Book Your Perfect{' '}
             <motion.span
               className="text-transparent bg-clip-text bg-gradient-to-r from-brand-red via-brand-red to-brand-red"
@@ -1285,7 +1258,7 @@ function CTASection() {
 
 export default function HomePage() {
   return (
-    <div className="bg-black">
+    <div className="relative">
       <HeroSection />
       <StatsMarquee />
       <HowItWorksSection />

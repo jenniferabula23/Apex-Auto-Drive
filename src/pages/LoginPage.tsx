@@ -43,18 +43,17 @@ export default function LoginPage() {
         className="relative z-10 w-full max-w-md"
       >
         <div className="absolute -inset-1 bg-gradient-to-br from-brand-red/30 via-transparent to-orange-500/20 blur-xl opacity-60" />
-        <div className="relative bg-black/70 backdrop-blur-2xl border border-white/10 p-10">
+        <div className="relative bg-white/80 backdrop-blur-2xl border border-black/10 p-10">
           <div className="text-center mb-8">
             <img
               src="/photo_2026-05-13_21-54-50-removebg-preview.png"
               alt="Apex Auto Drive"
-              className="h-14 w-auto object-contain mx-auto mb-4"
-              style={{ filter: 'drop-shadow(0 0 12px rgba(174,33,25,0.5))' }}
+              className="brand-logo h-14 w-auto object-contain mx-auto mb-4"
             />
             <span className="font-mono text-xs text-brand-red tracking-[0.4em] uppercase">
               {mode === 'login' ? 'Member Access' : 'Join the Elite'}
             </span>
-            <h1 className="font-heading font-black text-4xl text-white mt-3">
+            <h1 className="font-heading font-black text-4xl text-gray-900 mt-3">
               {mode === 'login' ? 'Welcome Back' : 'Create Account'}
             </h1>
             <p className="text-brand-gray text-sm mt-2">
@@ -62,8 +61,8 @@ export default function LoginPage() {
                 ? 'Access your premium driving dashboard.'
                 : 'Unlock the Apex Auto Drive experience.'}
             </p>
-            <p className="text-brand-gray text-xs mt-3 bg-white/5 border border-white/10 px-3 py-2">
-              Local demo: <span className="text-white">user@demo.com</span> / <span className="text-white">demo123</span>
+            <p className="text-brand-gray text-xs mt-3 bg-black/5 border border-black/10 px-3 py-2">
+              Local demo: <span className="text-gray-900">user@demo.com</span> / <span className="text-gray-900">demo123</span>
             </p>
           </div>
 
@@ -78,7 +77,7 @@ export default function LoginPage() {
                     required
                     value={name}
                     onChange={e => setName(e.target.value)}
-                    className="w-full bg-white/5 border border-white/10 text-white pl-11 pr-4 py-3 focus:outline-none focus:border-brand-red transition-colors"
+                    className="w-full bg-white border border-black/10 text-gray-900 pl-11 pr-4 py-3 focus:outline-none focus:border-brand-red transition-colors"
                     placeholder="Michael Asante"
                   />
                 </div>
@@ -94,7 +93,7 @@ export default function LoginPage() {
                   required
                   value={email}
                   onChange={e => setEmail(e.target.value)}
-                  className="w-full bg-white/5 border border-white/10 text-white pl-11 pr-4 py-3 focus:outline-none focus:border-brand-red transition-colors"
+                    className="w-full bg-white border border-black/10 text-gray-900 pl-11 pr-4 py-3 focus:outline-none focus:border-brand-red transition-colors"
                   placeholder="you@email.com"
                 />
               </div>
@@ -110,7 +109,7 @@ export default function LoginPage() {
                   minLength={6}
                   value={password}
                   onChange={e => setPassword(e.target.value)}
-                  className="w-full bg-white/5 border border-white/10 text-white pl-11 pr-4 py-3 focus:outline-none focus:border-brand-red transition-colors"
+                    className="w-full bg-white border border-black/10 text-gray-900 pl-11 pr-4 py-3 focus:outline-none focus:border-brand-red transition-colors"
                   placeholder="••••••••"
                 />
               </div>
@@ -138,7 +137,7 @@ export default function LoginPage() {
             </button>
           </form>
 
-          <div className="mt-8 pt-6 border-t border-white/5 text-center">
+          <div className="mt-8 pt-6 border-t border-black/10 text-center">
             <p className="text-sm text-brand-gray">
               {mode === 'login' ? "Don't have an account?" : 'Already have an account?'}{' '}
               <button
@@ -149,7 +148,7 @@ export default function LoginPage() {
                 {mode === 'login' ? 'Sign up' : 'Sign in'}
               </button>
             </p>
-            <Link to="/" className="text-xs text-brand-gray hover:text-white mt-4 inline-block transition-colors">
+            <Link to="/" className="text-xs text-brand-gray hover:text-brand-red mt-4 inline-block transition-colors">
               ← Back to home
             </Link>
           </div>

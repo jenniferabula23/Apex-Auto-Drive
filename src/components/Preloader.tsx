@@ -175,14 +175,10 @@ function AnimatedLogo() {
       <motion.img
         src={LOGO}
         alt="Apex Auto Drive"
-        className="relative w-[260px] sm:w-[340px] md:w-[420px] h-auto object-contain select-none"
+        className="brand-logo relative w-[260px] sm:w-[340px] md:w-[420px] h-auto object-contain select-none"
         draggable={false}
         animate={{ y: [0, -6, 0] }}
         transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut', delay: 1.4 }}
-        style={{
-          filter:
-            'drop-shadow(0 0 18px rgba(174,33,25,0.55)) drop-shadow(0 0 40px rgba(255,140,0,0.18))',
-        }}
       />
       <motion.div
         className="absolute -bottom-6 left-1/2 -translate-x-1/2 h-[3px] rounded-full"

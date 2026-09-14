@@ -99,7 +99,7 @@ export default function AdminAddCustomerPage() {
 
   return (
     <div className="space-y-8">
-      <Link to="/admin/users" className="inline-flex items-center gap-2 text-brand-gray hover:text-white text-sm">
+      <Link to="/admin/users" className="inline-flex items-center gap-2 text-brand-gray hover:text-gray-900 text-sm">
         <ChevronLeft className="w-4 h-4" />
         Back to users
       </Link>
@@ -120,8 +120,8 @@ export default function AdminAddCustomerPage() {
               step === i
                 ? 'bg-brand-red text-white shadow-[0_0_20px_rgba(174,33,25,0.4)]'
                 : i < step
-                  ? 'border border-brand-red/30 text-white hover:bg-brand-red/10'
-                  : 'border border-white/10 text-brand-gray'
+                  ? 'border border-brand-red/30 text-gray-900 hover:bg-brand-red/10'
+                  : 'border border-gray-200 text-brand-gray'
             }`}
           >
             {i + 1}. {label}
@@ -181,11 +181,11 @@ export default function AdminAddCustomerPage() {
                 className={`${adminCard} p-4 text-left transition-all ${
                   draft.documentType === doc.key
                     ? 'border-brand-red ring-1 ring-brand-red/40'
-                    : 'hover:border-white/20'
+                    : 'hover:border-gray-200'
                 }`}
               >
                 <FileText className="w-5 h-5 text-brand-red mb-2" />
-                <p className="text-white text-sm font-medium">{doc.label}</p>
+                <p className="text-gray-900 text-sm font-medium">{doc.label}</p>
               </button>
             ))}
           </div>
@@ -195,7 +195,7 @@ export default function AdminAddCustomerPage() {
       {step === 3 && (
         <motion.div initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} className={`${adminPanel} p-6 space-y-4`}>
           <p className="text-brand-gray text-sm">
-            Upload <span className="text-white">{selectedDocLabel}</span> for {draft.name || 'this customer'}.
+            Upload <span className="text-gray-900">{selectedDocLabel}</span> for {draft.name || 'this customer'}.
           </p>
           <input
             ref={fileInputRef}
@@ -204,16 +204,16 @@ export default function AdminAddCustomerPage() {
             className="hidden"
             onChange={e => handleUpload(e.target.files)}
           />
-          <div className="border border-dashed border-white/15 p-6 text-center">
+          <div className="border border-dashed border-gray-300 p-6 text-center">
             {draft.documentUrl ? (
               <div className="space-y-4">
                 {draft.documentUrl.startsWith('data:application/pdf') ? (
                   <div className="flex flex-col items-center gap-2 py-6">
                     <FileText className="w-12 h-12 text-brand-red" />
-                    <p className="text-white text-sm">PDF document uploaded</p>
+                    <p className="text-gray-900 text-sm">PDF document uploaded</p>
                   </div>
                 ) : (
-                  <img src={draft.documentUrl} alt="ID document" className="max-h-48 mx-auto border border-white/10" />
+                  <img src={draft.documentUrl} alt="ID document" className="max-h-48 mx-auto border border-gray-200" />
                 )}
                 <button type="button" disabled={uploading} onClick={() => fileInputRef.current?.click()} className="btn-outline text-xs">
                   Replace document
@@ -224,7 +224,7 @@ export default function AdminAddCustomerPage() {
                 type="button"
                 disabled={uploading}
                 onClick={() => fileInputRef.current?.click()}
-                className="w-full py-10 flex flex-col items-center gap-2 text-brand-gray hover:text-white transition-colors"
+                className="w-full py-10 flex flex-col items-center gap-2 text-brand-gray hover:text-gray-900 transition-colors"
               >
                 {uploading ? (
                   <Loader2 className="w-8 h-8 animate-spin text-brand-red" />
@@ -242,16 +242,16 @@ export default function AdminAddCustomerPage() {
       {step === 4 && (
         <motion.div initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} className={`${adminPanel} p-6 space-y-4`}>
           <div className="grid sm:grid-cols-2 gap-4 text-sm">
-            <div><span className="text-brand-gray">Name:</span> <span className="text-white ml-2">{draft.name}</span></div>
-            <div><span className="text-brand-gray">Email:</span> <span className="text-white ml-2">{draft.email}</span></div>
-            <div><span className="text-brand-gray">Phone:</span> <span className="text-white ml-2">{draft.phone}</span></div>
-            <div><span className="text-brand-gray">License:</span> <span className="text-white ml-2">{draft.licenseNumber}</span></div>
-            <div className="sm:col-span-2"><span className="text-brand-gray">Address:</span> <span className="text-white ml-2">{draft.address}</span></div>
-            <div><span className="text-brand-gray">Document:</span> <span className="text-white ml-2">{selectedDocLabel}</span></div>
-            <div><span className="text-brand-gray">Uploaded:</span> <span className="text-white ml-2">{draft.documentUrl ? 'Yes' : 'No'}</span></div>
+            <div><span className="text-brand-gray">Name:</span> <span className="text-gray-900 ml-2">{draft.name}</span></div>
+            <div><span className="text-brand-gray">Email:</span> <span className="text-gray-900 ml-2">{draft.email}</span></div>
+            <div><span className="text-brand-gray">Phone:</span> <span className="text-gray-900 ml-2">{draft.phone}</span></div>
+            <div><span className="text-brand-gray">License:</span> <span className="text-gray-900 ml-2">{draft.licenseNumber}</span></div>
+            <div className="sm:col-span-2"><span className="text-brand-gray">Address:</span> <span className="text-gray-900 ml-2">{draft.address}</span></div>
+            <div><span className="text-brand-gray">Document:</span> <span className="text-gray-900 ml-2">{selectedDocLabel}</span></div>
+            <div><span className="text-brand-gray">Uploaded:</span> <span className="text-gray-900 ml-2">{draft.documentUrl ? 'Yes' : 'No'}</span></div>
           </div>
           {draft.documentUrl && !draft.documentUrl.startsWith('data:application/pdf') && (
-            <img src={draft.documentUrl} alt="Document preview" className="max-h-32 border border-white/10" />
+            <img src={draft.documentUrl} alt="Document preview" className="max-h-32 border border-gray-200" />
           )}
         </motion.div>
       )}

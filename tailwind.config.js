@@ -8,9 +8,16 @@ export default {
           red: '#AE2119',
           'red-dark': '#8B1A13',
           'red-light': '#C9261C',
+          brown: '#3F2A1C',
+          'brown-soft': '#6B4E3D',
+          'brown-muted': '#A89080',
           gray: '#898989',
           'gray-light': '#EAECEC',
           black: '#000000',
+        },
+        surface: {
+          warm: '#FAF8F6',
+          paper: '#FFFCF9',
         },
         accent: {
           yellow: '#F5C518',

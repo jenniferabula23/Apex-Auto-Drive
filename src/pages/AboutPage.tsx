@@ -42,7 +42,7 @@ export default function AboutPage() {
   ];
 
   return (
-    <div className="min-h-screen bg-black pt-20">
+    <div className="min-h-screen pt-20">
       {/* Hero */}
       <div className="relative py-28 overflow-hidden">
         <div className="absolute inset-0 grid-lines opacity-20" />
@@ -54,7 +54,7 @@ export default function AboutPage() {
             backgroundPosition: 'center',
           }}
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/70 to-black" />
+        <div className="absolute inset-0 bg-gradient-to-b from-white/95 to-white" />
         <div className="absolute inset-0 bg-gradient-to-r from-brand-red/10 to-transparent" />
 
         <div className="relative z-10 max-w-4xl mx-auto px-4 text-center">
@@ -65,7 +65,7 @@ export default function AboutPage() {
             <span className="text-brand-red text-xs tracking-widest uppercase border border-brand-red/30 px-4 py-2">
               Our Story
             </span>
-            <h1 className="font-heading font-black text-6xl text-white mt-6 mb-4">
+            <h1 className="font-heading font-black text-6xl text-gray-900 mt-6 mb-4">
               About <span className="text-brand-red">Apex Auto Drive</span>
             </h1>
             <p className="text-brand-gray text-lg max-w-2xl mx-auto leading-relaxed">
@@ -87,7 +87,7 @@ export default function AboutPage() {
               <span className="text-brand-red text-xs tracking-widest uppercase border border-brand-red/30 px-4 py-2">
                 Who We Are
               </span>
-              <h2 className="section-heading text-white mt-6 mb-6">
+              <h2 className="section-heading text-gray-900 mt-6 mb-6">
                 More Than Just<br />
                 <span className="text-brand-red">Car Rentals</span>
               </h2>
@@ -138,7 +138,7 @@ export default function AboutPage() {
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.3 }}
-                className="absolute -bottom-6 -left-6 bg-black border border-brand-red/30 p-5 shadow-[0_0_30px_rgba(174,33,25,0.3)]"
+                className="absolute -bottom-6 -left-6 bg-[#2a1810] border border-brand-red/30 p-5 shadow-[0_0_30px_rgba(174,33,25,0.3)]"
               >
                 <div className="flex gap-1 mb-2">
                   {[...Array(5)].map((_, i) => (
@@ -160,7 +160,7 @@ export default function AboutPage() {
       </section>
 
       {/* Why Choose Us */}
-      <section className="py-24 bg-[#050505]">
+      <section className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -171,7 +171,7 @@ export default function AboutPage() {
             <span className="text-brand-red text-xs tracking-widest uppercase border border-brand-red/30 px-4 py-2">
               Why Us
             </span>
-            <h2 className="section-heading text-white mt-6">Why Choose <span className="text-brand-red">Apex Auto Drive</span></h2>
+            <h2 className="section-heading text-gray-900 mt-6">Why Choose <span className="text-brand-red">Apex Auto Drive</span></h2>
             <p className="text-brand-gray mt-4 max-w-2xl mx-auto">
               We provide reliable transportation solutions designed to give every client confidence, convenience, and peace of mind.
             </p>
@@ -192,12 +192,12 @@ export default function AboutPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1 }}
-                className="bg-[#0a0a0a] border border-white/5 p-7 hover:border-brand-red/30 transition-all duration-400 group"
+                className="bg-white border border-black/10 p-7 hover:border-brand-red/30 transition-all duration-400 group"
               >
                 <div className="w-12 h-12 bg-brand-red/10 border border-brand-red/20 flex items-center justify-center mb-5 group-hover:bg-brand-red/20 transition-colors">
                   <item.icon className="w-5 h-5 text-brand-red" />
                 </div>
-                <h3 className="font-heading font-bold text-white mb-2">{item.title}</h3>
+                <h3 className="font-heading font-bold text-gray-900 mb-2">{item.title}</h3>
                 <p className="text-brand-gray text-sm leading-relaxed">{item.desc}</p>
               </motion.div>
             ))}
@@ -217,7 +217,7 @@ export default function AboutPage() {
             <span className="text-brand-red text-xs tracking-widest uppercase border border-brand-red/30 px-4 py-2">
               Our Values
             </span>
-            <h2 className="section-heading text-white mt-6">Core <span className="text-brand-red">Values</span></h2>
+            <h2 className="section-heading text-gray-900 mt-6">Core <span className="text-brand-red">Values</span></h2>
           </motion.div>
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -228,12 +228,12 @@ export default function AboutPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1 }}
-                className="text-center p-8 border border-white/5 bg-[#0a0a0a] hover:border-brand-red/30 transition-all group"
+                className="text-center p-8 border border-black/10 bg-white hover:border-brand-red/30 transition-all group"
               >
                 <div className="w-14 h-14 bg-brand-red/10 border border-brand-red/20 flex items-center justify-center mx-auto mb-5 group-hover:bg-brand-red/20 transition-colors">
                   <v.icon className="w-6 h-6 text-brand-red" />
                 </div>
-                <h3 className="font-heading font-bold text-white mb-2">{v.title}</h3>
+                <h3 className="font-heading font-bold text-gray-900 mb-2">{v.title}</h3>
                 <p className="text-brand-gray text-sm">{v.desc}</p>
               </motion.div>
             ))}
@@ -242,7 +242,7 @@ export default function AboutPage() {
       </section>
 
       {/* Team */}
-      <section className="py-24 bg-[#050505]">
+      <section className="py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -253,7 +253,7 @@ export default function AboutPage() {
             <span className="text-brand-red text-xs tracking-widest uppercase border border-brand-red/30 px-4 py-2">
               The Team
             </span>
-            <h2 className="section-heading text-white mt-6">Meet Our <span className="text-brand-red">Team</span></h2>
+            <h2 className="section-heading text-gray-900 mt-6">Meet Our <span className="text-brand-red">Team</span></h2>
             <p className="text-brand-gray mt-4 max-w-2xl mx-auto">
               A dedicated team committed to delivering reliable transportation services and exceptional customer experiences across Ghana.
             </p>
@@ -267,9 +267,9 @@ export default function AboutPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1 }}
-                className="group bg-[#0a0a0a] border border-white/5 overflow-hidden hover:border-brand-red/30 transition-colors duration-300"
+                className="group bg-white border border-black/10 overflow-hidden hover:border-brand-red/30 transition-colors duration-300"
               >
-                <div className="relative aspect-[3/4] overflow-hidden bg-black border-b border-white/5">
+                <div className="relative aspect-[3/4] overflow-hidden bg-gray-100 border-b border-black/5">
                   <img
                     src={member.image}
                     alt={member.name}
@@ -278,8 +278,8 @@ export default function AboutPage() {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent pointer-events-none" />
                 </div>
-                <div className="p-5 bg-[#0a0a0a]">
-                  <p className="text-white font-heading font-bold text-lg">{member.name}</p>
+                <div className="p-5 bg-white">
+                  <p className="text-gray-900 font-heading font-bold text-lg">{member.name}</p>
                   <p className="text-brand-red text-xs uppercase tracking-wider mt-1">{member.role}</p>
                   <p className="text-brand-gray text-sm leading-relaxed mt-3">{member.bio}</p>
                 </div>
@@ -301,7 +301,7 @@ export default function AboutPage() {
             <span className="text-brand-red text-xs tracking-widest uppercase border border-brand-red/30 px-4 py-2">
               Trusted Partners
             </span>
-            <h2 className="section-heading text-white mt-6">Our <span className="text-brand-red">Partners</span></h2>
+            <h2 className="section-heading text-gray-900 mt-6">Our <span className="text-brand-red">Partners</span></h2>
           </motion.div>
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
@@ -312,12 +312,12 @@ export default function AboutPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1 }}
-                className="bg-[#0a0a0a] border border-white/5 p-6 text-center hover:border-brand-red/30 transition-all"
+                className="bg-white border border-black/10 p-6 text-center hover:border-brand-red/30 transition-all"
               >
                 <div className="w-12 h-12 bg-brand-red/10 border border-brand-red/20 flex items-center justify-center mx-auto mb-4">
                   <Award className="w-5 h-5 text-brand-red" />
                 </div>
-                <h4 className="font-heading font-bold text-white mb-1">{p.name}</h4>
+                <h4 className="font-heading font-bold text-gray-900 mb-1">{p.name}</h4>
                 <p className="text-brand-gray text-xs">{p.desc}</p>
               </motion.div>
             ))}
@@ -328,7 +328,7 @@ export default function AboutPage() {
       {/* CTA */}
       <section className="py-20 bg-brand-red/10 border-t border-brand-red/20">
         <div className="max-w-3xl mx-auto px-4 text-center">
-          <h3 className="font-heading font-bold text-4xl text-white mb-4">
+          <h3 className="font-heading font-bold text-4xl text-gray-900 mb-4">
             Ready To Drive with <span className="text-brand-red">Confidence?</span>
           </h3>
           <p className="text-brand-gray mb-8">

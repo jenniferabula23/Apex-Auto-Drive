@@ -102,7 +102,7 @@ export default function AdminProvidersPage() {
           >
             <div>
               <div className="flex items-center gap-2 mb-1">
-                <h3 className="text-white font-semibold">{provider.companyName}</h3>
+                <h3 className="text-gray-900 font-semibold">{provider.companyName}</h3>
                 <AdminStatusBadge label={provider.status} tone={provider.status === 'active' ? 'green' : 'gray'} />
               </div>
               <p className="text-brand-gray text-sm">{provider.contactName} · {provider.city}</p>
@@ -113,7 +113,7 @@ export default function AdminProvidersPage() {
               <button type="button" onClick={() => toggleStatus(provider)} className="btn-outline text-xs px-4 py-2">
                 {provider.status === 'active' ? 'Deactivate' : 'Activate'}
               </button>
-              <button type="button" onClick={() => handleDelete(provider.id)} className="p-3 border border-white/10 text-brand-gray hover:text-brand-red hover:border-brand-red/30 transition-colors">
+              <button type="button" onClick={() => handleDelete(provider.id)} className="p-3 border border-gray-200 text-brand-gray hover:text-brand-red hover:border-brand-red/30 transition-colors">
                 <Trash2 className="w-4 h-4" />
               </button>
             </div>

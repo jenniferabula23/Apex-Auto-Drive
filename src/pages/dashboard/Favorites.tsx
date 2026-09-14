@@ -58,9 +58,9 @@ export default function Favorites() {
           <Loader2 className="w-6 h-6 text-brand-red animate-spin" />
         </div>
       ) : items.length === 0 ? (
-        <div className="bg-black/40 backdrop-blur-xl border border-white/10 p-10 text-center">
+        <div className="bg-white border border-black/10 p-10 text-center">
           <Heart className="w-10 h-10 text-brand-red mx-auto mb-4" />
-          <p className="text-white mb-2">No favorites yet</p>
+          <p className="text-gray-900 mb-2">No favorites yet</p>
           <p className="text-brand-gray text-sm mb-6">Tap the heart icon on any vehicle to save it here.</p>
           <Link
             to="/vehicles"
@@ -81,7 +81,7 @@ export default function Favorites() {
               className="relative group"
             >
               <div className="absolute -inset-px bg-gradient-to-br from-brand-red/40 to-orange-500/20 opacity-0 group-hover:opacity-100 blur transition-opacity duration-500" />
-              <div className="relative bg-black/60 backdrop-blur-xl border border-white/10 overflow-hidden">
+              <div className="relative bg-white border border-black/10 overflow-hidden">
                 <div className="relative h-40 overflow-hidden">
                   <motion.img
                     src={f.vehicle_image}
@@ -93,14 +93,14 @@ export default function Favorites() {
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
                   <button
                     onClick={() => remove(f.id)}
-                    className="absolute top-3 right-3 w-9 h-9 bg-black/70 border border-white/10 hover:border-brand-red/60 flex items-center justify-center text-brand-gray hover:text-brand-red transition-all"
+                    className="absolute top-3 right-3 w-9 h-9 bg-white/90 border border-black/10 hover:border-brand-red/60 flex items-center justify-center text-brand-gray hover:text-brand-red transition-all"
                     aria-label="Remove favorite"
                   >
                     <Trash2 className="w-4 h-4" />
                   </button>
                 </div>
                 <div className="p-5">
-                  <h4 className="font-heading font-bold text-white">{f.vehicle_name}</h4>
+                  <h4 className="font-heading font-bold text-gray-900">{f.vehicle_name}</h4>
                   {f.vehicle_price > 0 && (
                     <p className="text-brand-red text-sm font-semibold mt-1">
                       {format(Number(f.vehicle_price))} <span className="text-brand-gray text-xs">/ day</span>
@@ -108,7 +108,7 @@ export default function Favorites() {
                   )}
                   <Link
                     to={`/vehicles/${f.vehicle_id}`}
-                    className="inline-flex items-center gap-1 text-xs text-white hover:text-brand-red mt-3 transition-colors"
+                    className="inline-flex items-center gap-1 text-xs text-gray-900 hover:text-brand-red mt-3 transition-colors"
                   >
                     View vehicle <ArrowRight className="w-3 h-3" />
                   </Link>
