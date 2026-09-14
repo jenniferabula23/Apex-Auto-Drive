@@ -100,7 +100,7 @@ export default function IdentityVerification() {
 
   if (loading) {
     return (
-      <div className="bg-black/50 backdrop-blur-xl border border-white/10 p-6 flex justify-center">
+      <div className="bg-white border border-black/10 p-6 flex justify-center">
         <Loader2 className="w-5 h-5 text-brand-red animate-spin" />
       </div>
     );
@@ -112,12 +112,12 @@ export default function IdentityVerification() {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ delay: 0.15 }}
-      className="bg-black/50 backdrop-blur-xl border border-white/10 p-6 space-y-5"
+      className="bg-white border border-black/10 p-6 space-y-5"
     >
       <div className="flex items-center justify-between gap-4">
         <div className="flex items-center gap-2">
           <ShieldCheck className="w-4 h-4 text-brand-red" />
-          <h3 className="font-heading font-semibold text-white">Identity Verification</h3>
+          <h3 className="font-heading font-semibold text-gray-900">Identity Verification</h3>
         </div>
         {isVerified && (
           <span className="text-[10px] uppercase tracking-widest border border-green-500/40 text-green-400 bg-green-500/10 px-3 py-1">
@@ -144,7 +144,7 @@ export default function IdentityVerification() {
             type="tel"
             value={draft.phone}
             onChange={e => patch({ phone: e.target.value })}
-            className="w-full bg-white/5 border border-white/10 text-white px-4 py-3 focus:outline-none focus:border-brand-red transition-colors"
+            className="w-full bg-white border border-black/10 text-gray-900 px-4 py-3 focus:outline-none focus:border-brand-red transition-colors"
             placeholder="+233 …"
           />
         </div>
@@ -153,7 +153,7 @@ export default function IdentityVerification() {
           <input
             value={draft.license_number}
             onChange={e => patch({ license_number: e.target.value })}
-            className="w-full bg-white/5 border border-white/10 text-white px-4 py-3 focus:outline-none focus:border-brand-red transition-colors"
+            className="w-full bg-white border border-black/10 text-gray-900 px-4 py-3 focus:outline-none focus:border-brand-red transition-colors"
             placeholder="e.g. GH-DL-123456"
           />
         </div>
@@ -165,7 +165,7 @@ export default function IdentityVerification() {
           rows={2}
           value={draft.address}
           onChange={e => patch({ address: e.target.value })}
-          className="w-full bg-white/5 border border-white/10 text-white px-4 py-3 focus:outline-none focus:border-brand-red transition-colors"
+          className="w-full bg-white border border-black/10 text-gray-900 px-4 py-3 focus:outline-none focus:border-brand-red transition-colors"
           placeholder="Street, city, region"
         />
       </div>
@@ -175,7 +175,7 @@ export default function IdentityVerification() {
         <select
           value={draft.document_type}
           onChange={e => patch({ document_type: e.target.value as DocumentType })}
-          className="w-full bg-white/5 border border-white/10 text-white px-4 py-3 focus:outline-none focus:border-brand-red transition-colors"
+          className="w-full bg-white border border-black/10 text-gray-900 px-4 py-3 focus:outline-none focus:border-brand-red transition-colors"
         >
           {documentTypes.map(doc => (
             <option key={doc.key} value={doc.key}>{doc.label}</option>
@@ -192,19 +192,19 @@ export default function IdentityVerification() {
           className="hidden"
           onChange={e => handleUpload(e.target.files)}
         />
-        <div className="border border-dashed border-white/15 p-5">
+        <div className="border border-dashed border-black/15 p-5">
           {draft.document_url ? (
             <div className="space-y-3 text-center">
               {draft.document_url.startsWith('data:application/pdf') ? (
                 <FileText className="w-12 h-12 text-brand-red mx-auto" />
               ) : (
-                <img src={draft.document_url} alt="ID document" className="max-h-40 mx-auto border border-white/10" />
+                <img src={draft.document_url} alt="ID document" className="max-h-40 mx-auto border border-black/10" />
               )}
               <button
                 type="button"
                 disabled={uploading}
                 onClick={() => fileInputRef.current?.click()}
-                className="text-xs text-brand-gray hover:text-white transition-colors"
+                className="text-xs text-brand-gray hover:text-gray-900 transition-colors"
               >
                 Replace document
               </button>
@@ -214,7 +214,7 @@ export default function IdentityVerification() {
               type="button"
               disabled={uploading}
               onClick={() => fileInputRef.current?.click()}
-              className="w-full py-8 flex flex-col items-center gap-2 text-brand-gray hover:text-white transition-colors"
+              className="w-full py-8 flex flex-col items-center gap-2 text-brand-gray hover:text-gray-900 transition-colors"
             >
               {uploading ? (
                 <Loader2 className="w-8 h-8 animate-spin text-brand-red" />

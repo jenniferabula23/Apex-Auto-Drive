@@ -77,7 +77,7 @@ export default function DashboardOverview() {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
-        className="relative overflow-hidden bg-gradient-to-br from-black via-[#0a0606] to-black border border-white/10 p-8 lg:p-12"
+        className="relative overflow-hidden bg-white border border-black/10 p-8 lg:p-12"
       >
         <div className="absolute inset-0 grid-lines opacity-20" />
         <div className="absolute -top-32 -right-32 w-[500px] h-[500px] bg-brand-red/15 rounded-full blur-[100px]" />
@@ -97,7 +97,7 @@ export default function DashboardOverview() {
             <Sparkles className="w-4 h-4 text-brand-red" />
             <span className="font-mono text-xs text-brand-red tracking-[0.4em] uppercase">Member Hub</span>
           </div>
-          <h1 className="font-heading font-black text-4xl lg:text-5xl text-white leading-tight mb-4">
+          <h1 className="font-heading font-black text-4xl lg:text-5xl text-gray-900 leading-tight mb-4">
             Welcome Back, <span className="text-brand-red">{displayName}</span>
           </h1>
           <p className="text-brand-gray text-lg">Your premium driving experience awaits.</p>
@@ -111,7 +111,7 @@ export default function DashboardOverview() {
             </Link>
             <Link
               to="/dashboard/rentals"
-              className="inline-flex items-center gap-2 border border-white/10 hover:border-brand-red/50 text-white px-6 py-3 text-sm transition-all"
+              className="inline-flex items-center gap-2 border border-black/10 hover:border-brand-red/50 text-gray-900 px-6 py-3 text-sm transition-all"
             >
               View Rentals
             </Link>
@@ -128,7 +128,7 @@ export default function DashboardOverview() {
           className="relative"
         >
           <div className="absolute -inset-1 bg-gradient-to-br from-brand-red/30 via-orange-500/10 to-transparent blur-xl opacity-60 pointer-events-none" />
-          <div className="relative bg-black/60 backdrop-blur-xl border border-white/10 overflow-hidden">
+          <div className="relative bg-white border border-black/10 overflow-hidden">
             <div className="grid lg:grid-cols-5">
               <div className="lg:col-span-2 relative h-64 lg:h-auto overflow-hidden">
                 <motion.img
@@ -147,7 +147,7 @@ export default function DashboardOverview() {
 
               <div className="lg:col-span-3 p-8 lg:p-10">
                 <p className="font-mono text-xs text-brand-red tracking-[0.4em] uppercase mb-2">Current Rental</p>
-                <h3 className="font-heading font-black text-3xl text-white mb-1">{active.vehicle_name}</h3>
+                <h3 className="font-heading font-black text-3xl text-gray-900 mb-1">{active.vehicle_name}</h3>
                 <p className="text-brand-gray text-sm mb-6">Booking {active.booking_ref}</p>
 
                 <div className="grid sm:grid-cols-2 gap-4 mb-6">
@@ -155,34 +155,34 @@ export default function DashboardOverview() {
                     <Calendar className="w-4 h-4 text-brand-red mt-1" />
                     <div>
                       <p className="text-xs text-brand-gray uppercase tracking-wider">Pickup</p>
-                      <p className="text-white text-sm">{active.pickup_date || 'TBC'}</p>
+                      <p className="text-gray-900 text-sm">{active.pickup_date || 'TBC'}</p>
                     </div>
                   </div>
                   <div className="flex items-start gap-3">
                     <Calendar className="w-4 h-4 text-brand-red mt-1" />
                     <div>
                       <p className="text-xs text-brand-gray uppercase tracking-wider">Return</p>
-                      <p className="text-white text-sm">{active.return_date || 'TBC'}</p>
+                      <p className="text-gray-900 text-sm">{active.return_date || 'TBC'}</p>
                     </div>
                   </div>
                   <div className="flex items-start gap-3">
                     <MapPin className="w-4 h-4 text-brand-red mt-1" />
                     <div>
                       <p className="text-xs text-brand-gray uppercase tracking-wider">Location</p>
-                      <p className="text-white text-sm">{active.pickup_location}</p>
+                      <p className="text-gray-900 text-sm">{active.pickup_location}</p>
                     </div>
                   </div>
                   <div className="flex items-start gap-3">
                     <Car className="w-4 h-4 text-brand-red mt-1" />
                     <div>
                       <p className="text-xs text-brand-gray uppercase tracking-wider">Duration</p>
-                      <p className="text-white text-sm">{active.days} day{active.days > 1 ? 's' : ''}</p>
+                      <p className="text-gray-900 text-sm">{active.days} day{active.days > 1 ? 's' : ''}</p>
                     </div>
                   </div>
                 </div>
 
                 {/* Countdown */}
-                <div className="border-t border-white/10 pt-5 flex items-center justify-between flex-wrap gap-3">
+                <div className="border-t border-black/10 pt-5 flex items-center justify-between flex-wrap gap-3">
                   <div className="flex items-center gap-3">
                     <Clock className="w-4 h-4 text-orange-400" />
                     <span className="text-xs text-brand-gray uppercase tracking-widest">Time Remaining</span>
@@ -194,11 +194,11 @@ export default function DashboardOverview() {
                       animate={{ opacity: 1, y: 0 }}
                       className="flex items-baseline gap-2"
                     >
-                      <span className="font-heading font-black text-3xl text-white drop-shadow-[0_0_10px_rgba(174,33,25,0.6)]">
+                      <span className="font-heading font-black text-3xl text-gray-900 drop-shadow-[0_0_10px_rgba(174,33,25,0.6)]">
                         {remaining.days}
                       </span>
                       <span className="text-xs text-brand-gray uppercase tracking-widest">Days</span>
-                      <span className="font-heading font-black text-3xl text-white ml-3 drop-shadow-[0_0_10px_rgba(174,33,25,0.6)]">
+                      <span className="font-heading font-black text-3xl text-gray-900 ml-3 drop-shadow-[0_0_10px_rgba(174,33,25,0.6)]">
                         {remaining.hours}
                       </span>
                       <span className="text-xs text-brand-gray uppercase tracking-widest">Hours</span>
@@ -212,9 +212,9 @@ export default function DashboardOverview() {
           </div>
         </motion.section>
       ) : (
-        <div className="bg-black/40 backdrop-blur-xl border border-white/10 p-10 text-center">
+        <div className="bg-white border border-black/10 p-10 text-center">
           <Car className="w-10 h-10 text-brand-red mx-auto mb-4" />
-          <h3 className="font-heading font-bold text-xl text-white mb-2">No Active Rentals</h3>
+          <h3 className="font-heading font-bold text-xl text-gray-900 mb-2">No Active Rentals</h3>
           <p className="text-brand-gray text-sm mb-6">Book a vehicle to start your premium driving experience.</p>
           <Link
             to="/vehicles"
@@ -239,11 +239,11 @@ export default function DashboardOverview() {
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ delay: 0.4 }}
-          className="bg-black/50 backdrop-blur-xl border border-white/10 p-6"
+          className="bg-white border border-black/10 p-6"
         >
           <div className="flex items-center gap-2 mb-5">
             <Bell className="w-4 h-4 text-brand-red" />
-            <h4 className="font-heading font-semibold text-white">Notifications</h4>
+            <h4 className="font-heading font-semibold text-gray-900">Notifications</h4>
           </div>
           <div className="space-y-3">
             {[
@@ -256,7 +256,7 @@ export default function DashboardOverview() {
                 initial={{ opacity: 0, x: -10 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 0.5 + i * 0.1 }}
-                className="flex items-start gap-3 p-3 bg-white/5 border border-white/5 hover:border-brand-red/30 transition-colors"
+                className="flex items-start gap-3 p-3 bg-gray-50 border border-black/5 hover:border-brand-red/30 transition-colors"
               >
                 <span
                   className={`w-2 h-2 rounded-full mt-1.5 ${
@@ -266,7 +266,7 @@ export default function DashboardOverview() {
                   }`}
                 />
                 <div>
-                  <p className="text-sm text-white">{n.title}</p>
+                  <p className="text-sm text-gray-900">{n.title}</p>
                   <p className="text-xs text-brand-gray">{n.body}</p>
                 </div>
               </motion.div>

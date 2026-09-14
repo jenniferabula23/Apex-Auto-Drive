@@ -40,7 +40,7 @@ export default function AdminRolesPage() {
       />
 
       <div className={adminAlert}>
-        <p className="text-white text-sm font-semibold mb-1">Frontend-only permissions</p>
+        <p className="text-gray-900 text-sm font-semibold mb-1">Frontend-only permissions</p>
         <p className="text-brand-gray text-xs">
           Changes are stored locally. API enforcement will mirror this matrix when connected.
         </p>
@@ -54,7 +54,7 @@ export default function AdminRolesPage() {
       <div className={`${adminCard} overflow-x-auto`}>
         <table className="w-full text-sm min-w-[640px]">
           <thead>
-            <tr className="border-b border-white/10 text-brand-gray text-xs uppercase tracking-widest">
+            <tr className="border-b border-gray-200 text-brand-gray text-xs uppercase tracking-widest">
               <th className="text-left p-4">Permission</th>
               {roles.map(role => (
                 <th key={role} className="text-center p-4">{roleLabel(role)}</th>
@@ -63,8 +63,8 @@ export default function AdminRolesPage() {
           </thead>
           <tbody>
             {permissions.map(({ key, label }) => (
-              <tr key={key} className="border-b border-white/5">
-                <td className="p-4 text-white">{label}</td>
+              <tr key={key} className="border-b border-gray-100">
+                <td className="p-4 text-gray-900">{label}</td>
                 {roles.map(role => (
                   <td key={role} className="p-4 text-center">
                     <input

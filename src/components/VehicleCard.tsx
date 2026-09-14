@@ -132,16 +132,16 @@ export default function VehicleCard({ vehicle, index = 0 }: Props) {
         <div className="flex items-start justify-between mb-3">
           <div>
             <p className="text-brand-gray text-xs uppercase tracking-widest mb-1">{vehicle.category}</p>
-            <h3 className="font-heading font-bold text-white text-lg leading-tight">{vehicle.name}</h3>
+            <h3 className="font-heading font-bold text-gray-900 text-lg leading-tight">{vehicle.name}</h3>
           </div>
-          <div className="flex items-center gap-1 bg-white/5 px-2 py-1">
+          <div className="flex items-center gap-1 bg-black/5 px-2 py-1 border border-black/5">
             <Star className="w-3 h-3 text-accent-yellow fill-accent-yellow" />
-            <span className="text-white text-xs font-medium">{vehicle.rating}</span>
+            <span className="text-gray-900 text-xs font-medium">{vehicle.rating}</span>
           </div>
         </div>
 
         {/* Specs */}
-        <div className="flex items-center gap-4 mb-4 pb-4 border-b border-white/5">
+        <div className="flex items-center gap-4 mb-4 pb-4 border-b border-black/5">
           <div className="flex items-center gap-1.5 text-brand-gray text-xs">
             <Users className="w-3.5 h-3.5" />
             {vehicle.seats} seats

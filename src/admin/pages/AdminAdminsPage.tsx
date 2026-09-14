@@ -35,7 +35,7 @@ export default function AdminAdminsPage() {
       />
 
       <div className={adminAlert}>
-        <p className="text-white text-sm font-semibold mb-1">Admin Invitation System</p>
+        <p className="text-gray-900 text-sm font-semibold mb-1">Admin Invitation System</p>
         <p className="text-brand-gray text-xs">
           Administrators cannot register publicly. They must be invited via email. API email delivery can be connected later.
         </p>
@@ -73,7 +73,7 @@ export default function AdminAdminsPage() {
       )}
 
       <div>
-        <h2 className="font-heading font-semibold text-white mb-4">Current Administrators</h2>
+        <h2 className="font-heading font-semibold text-gray-900 mb-4">Current Administrators</h2>
         <div className="space-y-4">
           {admins.map((admin, i) => (
             <motion.div
@@ -88,7 +88,7 @@ export default function AdminAdminsPage() {
                   {admin.name[0]}
                 </div>
                 <div>
-                  <p className="text-white font-semibold">{admin.name}</p>
+                  <p className="text-gray-900 font-semibold">{admin.name}</p>
                   <p className="text-brand-gray text-sm">{admin.email}</p>
                   <p className="text-brand-gray text-xs">{admin.phone}</p>
                 </div>
@@ -100,7 +100,7 @@ export default function AdminAdminsPage() {
                 <span className={`text-[10px] px-3 py-1.5 uppercase tracking-widest border ${
                   admin.onDuty
                     ? 'border-green-500/40 text-green-400 bg-green-500/10'
-                    : 'border-white/20 text-brand-gray bg-white/5'
+                    : 'border-gray-200 text-brand-gray bg-gray-50'
                 }`}>
                   {admin.onDuty ? 'On Duty' : 'Off Duty'}
                 </span>

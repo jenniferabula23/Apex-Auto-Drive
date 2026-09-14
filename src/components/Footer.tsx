@@ -34,7 +34,8 @@ const openingHours = [
 
 export default function Footer() {
   return (
-    <footer className="bg-black border-t border-white/5 relative overflow-hidden">
+    <footer className="bg-surface-paper/90 border-t border-brand-brown/15 relative overflow-hidden">
+      <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-brand-brown/40 to-transparent" />
       <div className="absolute inset-0 grid-lines opacity-30 pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 lg:px-8 py-16 relative z-10">
@@ -44,8 +45,7 @@ export default function Footer() {
               <img
                 src="/photo_2026-05-13_21-54-50-removebg-preview.png"
                 alt="Apex Auto Drive"
-                className="h-10 w-auto object-contain"
-                style={{ filter: 'drop-shadow(0 0 8px rgba(174,33,25,0.4))' }}
+                className="brand-logo h-10 w-auto object-contain"
               />
             </Link>
             <p className="text-brand-gray text-sm leading-relaxed mb-6">
@@ -60,7 +60,7 @@ export default function Footer() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={label}
-                  className="w-10 h-10 border border-white/10 flex items-center justify-center text-brand-gray hover:text-white hover:border-brand-red/50 hover:bg-brand-red/10 transition-all duration-300"
+                  className="w-10 h-10 border border-brand-brown/20 flex items-center justify-center text-brand-gray hover:text-brand-red hover:border-brand-red/50 hover:bg-brand-red/10 transition-all duration-300"
                 >
                   <Icon className="w-4 h-4" />
                 </a>
@@ -69,7 +69,7 @@ export default function Footer() {
           </div>
 
           <div>
-            <h4 className="font-heading font-semibold text-white mb-6 tracking-wide">Navigation</h4>
+            <h4 className="font-heading font-semibold text-gray-900 mb-6 tracking-wide">Navigation</h4>
             <ul className="space-y-3">
               {[
                 { label: 'Vehicles', path: '/vehicles' },
@@ -90,14 +90,14 @@ export default function Footer() {
           </div>
 
           <div>
-            <h4 className="font-heading font-semibold text-white mb-6 tracking-wide flex items-center gap-2">
+            <h4 className="font-heading font-semibold text-gray-900 mb-6 tracking-wide flex items-center gap-2">
               <Clock className="w-4 h-4 text-brand-red" />
               Opening Hours
             </h4>
             <ul className="space-y-3">
               {openingHours.map(({ day, hours }) => (
                 <li key={day} className="text-sm">
-                  <span className="text-white block">{day}</span>
+                  <span className="text-gray-900 block">{day}</span>
                   <span className="text-brand-gray">{hours}</span>
                 </li>
               ))}
@@ -105,23 +105,23 @@ export default function Footer() {
           </div>
 
           <div>
-            <h4 className="font-heading font-semibold text-white mb-6 tracking-wide">Contact</h4>
+            <h4 className="font-heading font-semibold text-gray-900 mb-6 tracking-wide">Contact</h4>
             <ul className="space-y-4">
               <li className="flex items-start gap-3">
                 <MapPin className="w-4 h-4 text-brand-red mt-0.5 flex-shrink-0" />
                 <span className="text-brand-gray text-sm">
                   Dansoman Roundabout
                   <br />
-                  <span className="text-white/80">GU-537-3000</span>
+                  <span className="text-gray-700">GU-537-3000</span>
                 </span>
               </li>
               <li className="flex items-start gap-3">
                 <Phone className="w-4 h-4 text-brand-red mt-0.5 flex-shrink-0" />
                 <span className="text-brand-gray text-sm">
-                  <a href="tel:+233544124090" className="hover:text-white transition-colors block">
+                  <a href="tel:+233544124090" className="hover:text-brand-brown transition-colors block">
                     0544 124 090
                   </a>
-                  <a href="tel:+233544123796" className="hover:text-white transition-colors block mt-1">
+                  <a href="tel:+233544123796" className="hover:text-brand-red transition-colors block mt-1">
                     0544 123 796
                   </a>
                 </span>
@@ -130,7 +130,7 @@ export default function Footer() {
                 <Mail className="w-4 h-4 text-brand-red flex-shrink-0" />
                 <a
                   href="mailto:info@apexautodrive.co"
-                  className="text-brand-gray text-sm hover:text-white transition-colors"
+                  className="text-brand-gray text-sm hover:text-brand-red transition-colors"
                 >
                   info@apexautodrive.co
                 </a>
@@ -139,13 +139,13 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="border-t border-white/5 mt-12 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
+        <div className="border-t border-brand-brown/10 mt-12 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-brand-gray text-sm">
             &copy; {new Date().getFullYear()} Apex Auto Drive. All rights reserved.
           </p>
           <div className="flex gap-6">
-            <a href="#" className="text-brand-gray hover:text-white text-sm transition-colors">Privacy Policy</a>
-            <a href="#" className="text-brand-gray hover:text-white text-sm transition-colors">Terms of Service</a>
+            <a href="#" className="text-brand-gray hover:text-brand-red text-sm transition-colors">Privacy Policy</a>
+            <a href="#" className="text-brand-gray hover:text-brand-red text-sm transition-colors">Terms of Service</a>
           </div>
         </div>
       </div>

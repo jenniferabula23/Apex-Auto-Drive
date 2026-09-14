@@ -11,7 +11,7 @@ const statusStyles: Record<string, string> = {
   pending: 'border-orange-500/40 text-orange-400 bg-orange-500/10',
   confirmed: 'border-brand-red/40 text-brand-red bg-brand-red/10',
   completed: 'border-yellow-500/40 text-yellow-400 bg-yellow-500/10',
-  cancelled: 'border-white/20 text-brand-gray bg-white/5',
+  cancelled: 'border-black/20 text-brand-gray bg-black/5',
 };
 
 export default function BookingHistory() {
@@ -41,7 +41,7 @@ export default function BookingHistory() {
           <Loader2 className="w-6 h-6 text-brand-red animate-spin" />
         </div>
       ) : bookings.length === 0 ? (
-        <div className="bg-black/40 backdrop-blur-xl border border-white/10 p-10 text-center text-brand-gray">
+        <div className="bg-white border border-black/10 p-10 text-center text-brand-gray">
           No bookings yet.
         </div>
       ) : (
@@ -53,11 +53,11 @@ export default function BookingHistory() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: i * 0.05 }}
               whileHover={{ x: 4 }}
-              className="grid md:grid-cols-[80px_1fr_auto_auto] gap-5 items-center bg-black/50 backdrop-blur-xl border border-white/10 hover:border-brand-red/40 p-4 transition-colors"
+              className="grid md:grid-cols-[80px_1fr_auto_auto] gap-5 items-center bg-white border border-black/10 hover:border-brand-red/40 p-4 transition-colors"
             >
               <img src={b.vehicle_image} alt={b.vehicle_name} className="w-20 h-16 object-cover" />
               <div>
-                <p className="font-heading font-semibold text-white">{b.vehicle_name}</p>
+                <p className="font-heading font-semibold text-gray-900">{b.vehicle_name}</p>
                 <p className="text-[10px] text-brand-gray uppercase tracking-widest mb-1">{b.booking_ref}</p>
                 <div className="flex flex-wrap gap-3 text-xs text-brand-gray">
                   <span className="flex items-center gap-1"><Calendar className="w-3 h-3" />{b.pickup_date} → {b.return_date}</span>

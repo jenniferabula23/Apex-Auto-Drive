@@ -33,7 +33,7 @@ export default function AdminVehiclesPage() {
 
       <div className={`${adminCard} overflow-hidden`}>
         <table className="w-full text-sm">
-          <thead className="bg-white/5 text-brand-gray text-left">
+          <thead className="bg-gray-50 text-brand-gray text-left">
             <tr>
               <th className="px-4 py-3 font-medium uppercase tracking-wider text-[10px]">Vehicle</th>
               <th className="px-4 py-3 font-medium hidden md:table-cell uppercase tracking-wider text-[10px]">Category</th>
@@ -51,13 +51,13 @@ export default function AdminVehiclesPage() {
                   initial={{ opacity: 0, y: 8 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: i * 0.03 }}
-                  className="border-t border-white/5 hover:bg-white/[0.02] transition-colors"
+                  className="border-t border-gray-100 hover:bg-gray-50 transition-colors"
                 >
                   <td className="px-4 py-4">
                     <div className="flex items-center gap-3">
                       <img src={vehicle.image} alt={vehicle.name} className="w-16 h-12 object-cover" />
                       <div>
-                        <p className="text-white font-heading font-semibold">{vehicle.name}</p>
+                        <p className="text-gray-900 font-heading font-semibold">{vehicle.name}</p>
                         <p className="text-brand-gray text-xs">{vehicle.model}</p>
                       </div>
                     </div>
@@ -71,7 +71,7 @@ export default function AdminVehiclesPage() {
                     <div className="flex justify-end gap-2">
                       <Link
                         to={`/admin/vehicles/${vehicle.id}/edit`}
-                        className="p-2 text-brand-gray hover:text-white hover:bg-brand-red/10 transition-colors"
+                        className="p-2 text-brand-gray hover:text-gray-900 hover:bg-brand-red/10 transition-colors"
                         aria-label="Edit"
                       >
                         <Pencil className="w-4 h-4" />

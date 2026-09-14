@@ -2,7 +2,7 @@ export interface Vehicle {
   id: string;
   name: string;
   model: string;
-  category: 'Economy' | 'SUV' | 'Luxury' | 'Van' | 'Sports';
+  category: string;
   image: string;
   gallery: string[];
   pricePerDay: {
@@ -340,6 +340,16 @@ export const locations = [
 export type LocationKey = (typeof locations)[number]['key'];
 
 const FLEET_STORAGE_KEY = 'aad_admin_vehicles';
+const CATEGORIES_STORAGE_KEY = 'aad_admin_vehicle_categories';
+
+const defaultVehicleCategories = [
+  'SUV',
+  'Sedan',
+  'Economy',
+  'Luxury',
+  'Van',
+  'Sports',
+];
 
 export const getFleetVehicles = (): Vehicle[] => {
   if (typeof window === 'undefined') return vehicles;
@@ -350,6 +360,21 @@ export const getFleetVehicles = (): Vehicle[] => {
     return Array.isArray(parsed) && parsed.length > 0 ? parsed : vehicles;
   } catch {
     return vehicles;
+  }
+};
+
+/** Categories managed in admin (`/admin/categories`). */
+export const getVehicleCategories = (): string[] => {
+  if (typeof window === 'undefined') return defaultVehicleCategories;
+  try {
+    const raw = localStorage.getItem(CATEGORIES_STORAGE_KEY);
+    if (!raw) return defaultVehicleCategories;
+    const parsed = JSON.parse(raw) as string[];
+    return Array.isArray(parsed) && parsed.length > 0
+      ? parsed
+      : defaultVehicleCategories;
+  } catch {
+    return defaultVehicleCategories;
   }
 };
 

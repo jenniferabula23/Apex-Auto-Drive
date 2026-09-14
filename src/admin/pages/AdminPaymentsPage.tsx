@@ -91,14 +91,14 @@ export default function AdminPaymentsPage() {
                 <span className="font-mono text-xs text-brand-red">{payment.bookingRef}</span>
                 <AdminStatusBadge label={paymentStatusLabel[payment.status]} tone={tone(payment.status)} />
               </div>
-              <p className="text-white font-medium">{payment.customerName}</p>
+              <p className="text-gray-900 font-medium">{payment.customerName}</p>
               <p className="text-brand-gray text-sm capitalize">{payment.method.replace('_', ' ')} · {payment.reference}</p>
               {payment.paidAt && (
                 <p className="text-brand-gray text-xs mt-1">Paid {new Date(payment.paidAt).toLocaleString()}</p>
               )}
             </div>
             <div className="flex items-center gap-3">
-              <p className="text-white font-heading font-bold text-lg">{formatCurrency(payment.amount)}</p>
+              <p className="text-gray-900 font-heading font-bold text-lg">{formatCurrency(payment.amount)}</p>
               {payment.status !== 'paid' && (
                 <button type="button" onClick={() => markPaid(payment.id)} className="btn-primary inline-flex items-center gap-2 text-xs px-4 py-2">
                   <CheckCircle className="w-4 h-4" />

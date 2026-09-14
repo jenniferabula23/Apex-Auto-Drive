@@ -74,9 +74,9 @@ export default function VehicleImageUploadSection({
   const setAsCover = (url: string) => onCoverChange(url);
 
   return (
-    <div className="space-y-6 border-t border-white/10 pt-6">
+    <div className="space-y-6 border-t border-gray-200 pt-6">
       <div>
-        <h3 className="text-white font-semibold text-sm uppercase tracking-widest mb-1">Car Images</h3>
+        <h3 className="text-gray-900 font-semibold text-sm uppercase tracking-widest mb-1">Car Images</h3>
         <p className="text-brand-gray text-xs">
           Upload photos of the vehicle. Images are compressed and stored for the fleet listing.
         </p>
@@ -87,7 +87,7 @@ export default function VehicleImageUploadSection({
       )}
 
       <div className="grid sm:grid-cols-2 gap-4">
-        <div className={`border border-dashed border-white/15 p-5 text-center ${coverImage ? 'bg-white/[0.02]' : ''}`}>
+        <div className={`border border-dashed border-gray-300 p-5 text-center ${coverImage ? 'bg-gray-50' : ''}`}>
           <input
             ref={coverInputRef}
             type="file"
@@ -97,7 +97,7 @@ export default function VehicleImageUploadSection({
           />
           {coverImage ? (
             <div className="space-y-3">
-              <img src={coverImage} alt="Cover" className="w-full h-40 object-cover border border-white/10" />
+              <img src={coverImage} alt="Cover" className="w-full h-40 object-cover border border-gray-200" />
               <p className="text-xs text-brand-gray uppercase tracking-widest">Cover image</p>
               <button
                 type="button"
@@ -114,7 +114,7 @@ export default function VehicleImageUploadSection({
               type="button"
               disabled={uploadingCover}
               onClick={() => coverInputRef.current?.click()}
-              className="w-full py-8 flex flex-col items-center gap-2 text-brand-gray hover:text-white transition-colors"
+              className="w-full py-8 flex flex-col items-center gap-2 text-brand-gray hover:text-gray-900 transition-colors"
             >
               {uploadingCover ? (
                 <Loader2 className="w-8 h-8 animate-spin text-brand-red" />
@@ -126,7 +126,7 @@ export default function VehicleImageUploadSection({
           )}
         </div>
 
-        <div className="border border-dashed border-white/15 p-5">
+        <div className="border border-dashed border-gray-300 p-5">
           <input
             ref={galleryInputRef}
             type="file"
@@ -139,7 +139,7 @@ export default function VehicleImageUploadSection({
             type="button"
             disabled={uploadingGallery}
             onClick={() => galleryInputRef.current?.click()}
-            className="w-full py-8 flex flex-col items-center gap-2 text-brand-gray hover:text-white transition-colors"
+            className="w-full py-8 flex flex-col items-center gap-2 text-brand-gray hover:text-gray-900 transition-colors"
           >
             {uploadingGallery ? (
               <Loader2 className="w-8 h-8 animate-spin text-brand-red" />
@@ -155,7 +155,7 @@ export default function VehicleImageUploadSection({
       {gallery.length > 0 && (
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
           {gallery.map(url => (
-            <div key={url} className="relative group border border-white/10">
+            <div key={url} className="relative group border border-gray-200">
               <img src={url} alt="" className="h-24 w-full object-cover" />
               <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center gap-2">
                 {coverImage !== url && (
@@ -187,7 +187,7 @@ export default function VehicleImageUploadSection({
         </div>
       )}
 
-      <div className="space-y-3 border-t border-white/5 pt-4">
+      <div className="space-y-3 border-t border-gray-100 pt-4">
         <p className="text-xs text-brand-gray uppercase tracking-widest">Or paste image URLs</p>
         <div>
           <label className="text-xs text-brand-gray uppercase tracking-widest block mb-2">Cover image URL</label>

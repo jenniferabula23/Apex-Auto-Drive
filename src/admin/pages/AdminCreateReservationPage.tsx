@@ -215,7 +215,7 @@ export default function AdminCreateReservationPage() {
     <div className="space-y-8">
       <Link
         to="/admin/reservations"
-        className="inline-flex items-center gap-2 text-brand-gray hover:text-white text-sm"
+        className="inline-flex items-center gap-2 text-brand-gray hover:text-gray-900 text-sm"
       >
         <ChevronLeft className="w-4 h-4" />
         Back to reservations
@@ -237,8 +237,8 @@ export default function AdminCreateReservationPage() {
               step === i
                 ? 'bg-brand-red text-white shadow-[0_0_20px_rgba(174,33,25,0.4)]'
                 : i < step
-                  ? 'border border-brand-red/30 text-white hover:bg-brand-red/10'
-                  : 'border border-white/10 text-brand-gray'
+                  ? 'border border-brand-red/30 text-gray-900 hover:bg-brand-red/10'
+                  : 'border border-gray-200 text-brand-gray'
             }`}
           >
             {i + 1}. {label}
@@ -274,7 +274,7 @@ export default function AdminCreateReservationPage() {
                 className={`${adminCard} p-4 text-left transition-all ${
                   draft.customerId === customer.id
                     ? 'border-brand-red ring-1 ring-brand-red/40'
-                    : 'hover:border-white/20'
+                    : 'hover:border-gray-200'
                 }`}
               >
                 <div className="flex items-start gap-3">
@@ -282,7 +282,7 @@ export default function AdminCreateReservationPage() {
                     <User className="w-5 h-5 text-brand-red" />
                   </div>
                   <div>
-                    <p className="text-white font-medium">{customer.name}</p>
+                    <p className="text-gray-900 font-medium">{customer.name}</p>
                     <p className="text-brand-gray text-xs">{customer.email}</p>
                     <p className="text-brand-gray text-xs">{customer.phone}</p>
                   </div>
@@ -307,12 +307,12 @@ export default function AdminCreateReservationPage() {
                 className={`${adminCard} overflow-hidden text-left transition-all ${
                   draft.vehicleId === vehicle.id
                     ? 'border-brand-red ring-1 ring-brand-red/40'
-                    : 'hover:border-white/20'
+                    : 'hover:border-gray-200'
                 }`}
               >
                 <img src={vehicle.image} alt={vehicle.name} className="w-full h-32 object-cover" />
                 <div className="p-3">
-                  <p className="text-white font-medium text-sm">{vehicle.name}</p>
+                  <p className="text-gray-900 font-medium text-sm">{vehicle.name}</p>
                   <p className="text-brand-gray text-xs">{vehicle.category} · {vehicle.seats} seats</p>
                   <p className="text-brand-red text-sm font-semibold mt-1">
                     From {formatCurrency(vehicle.pricePerDay.accra)}/day
@@ -340,8 +340,8 @@ export default function AdminCreateReservationPage() {
                       onClick={() => selectLocation(loc.key)}
                       className={`px-4 py-3 text-sm text-left border transition-all ${
                         locationKey === loc.key
-                          ? 'border-brand-red bg-brand-red/10 text-white'
-                          : 'border-white/10 text-brand-gray hover:border-white/20 hover:text-white'
+                          ? 'border-brand-red bg-brand-red/10 text-gray-900'
+                          : 'border-gray-200 text-brand-gray hover:border-gray-200 hover:text-gray-900'
                       }`}
                     >
                       {loc.label}
@@ -415,7 +415,7 @@ export default function AdminCreateReservationPage() {
           />
           {draft.pickupDate && draft.returnDate && (
             <p className="text-brand-gray text-sm mt-4">
-              Rental duration: <span className="text-white font-medium">{rentalDays} day{rentalDays !== 1 ? 's' : ''}</span>
+              Rental duration: <span className="text-gray-900 font-medium">{rentalDays} day{rentalDays !== 1 ? 's' : ''}</span>
             </p>
           )}
         </motion.div>
@@ -453,7 +453,7 @@ export default function AdminCreateReservationPage() {
           ) : (
             <>
               <p className="text-brand-gray text-sm">
-                Select the daily rate for <span className="text-white">{regionLabel}</span>
+                Select the daily rate for <span className="text-gray-900">{regionLabel}</span>
               </p>
               <div className="grid sm:grid-cols-2 gap-3">
                 {rateOptions.map(rate => (
@@ -464,19 +464,19 @@ export default function AdminCreateReservationPage() {
                     className={`${adminCard} p-4 text-left transition-all ${
                       draft.pricePerDay === rate.price && locationKey === rate.key
                         ? 'border-brand-red ring-1 ring-brand-red/40'
-                        : 'hover:border-white/20'
+                        : 'hover:border-gray-200'
                     }`}
                   >
-                    <p className="text-white font-medium">{rate.label}</p>
+                    <p className="text-gray-900 font-medium">{rate.label}</p>
                     <p className="text-brand-red font-bold text-lg mt-1">{rate.display}</p>
                   </button>
                 ))}
               </div>
               {draft.pricePerDay > 0 && (
-                <div className="border-t border-white/10 pt-4 text-sm">
+                <div className="border-t border-gray-200 pt-4 text-sm">
                   <p className="text-brand-gray">
                     Estimated total:{' '}
-                    <span className="text-white font-bold text-xl">{formatCurrency(totalAmount)}</span>
+                    <span className="text-gray-900 font-bold text-xl">{formatCurrency(totalAmount)}</span>
                     <span className="text-brand-gray ml-2">
                       ({formatCurrency(draft.pricePerDay)} × {rentalDays} days)
                     </span>
@@ -491,23 +491,23 @@ export default function AdminCreateReservationPage() {
       {step === 7 && (
         <motion.div initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} className={`${adminPanel} p-6 space-y-4`}>
           <div className="grid sm:grid-cols-2 gap-4 text-sm">
-            <div><span className="text-brand-gray">Customer:</span> <span className="text-white ml-2">{selectedCustomer?.name}</span></div>
-            <div><span className="text-brand-gray">Vehicle:</span> <span className="text-white ml-2">{selectedVehicle?.name}</span></div>
-            <div><span className="text-brand-gray">Destination:</span> <span className="text-white ml-2">{pickupLocation}</span></div>
-            <div><span className="text-brand-gray">Module:</span> <span className="text-white ml-2">{draft.rentalModule.replace('_', ' ')}</span></div>
+            <div><span className="text-brand-gray">Customer:</span> <span className="text-gray-900 ml-2">{selectedCustomer?.name}</span></div>
+            <div><span className="text-brand-gray">Vehicle:</span> <span className="text-gray-900 ml-2">{selectedVehicle?.name}</span></div>
+            <div><span className="text-brand-gray">Destination:</span> <span className="text-gray-900 ml-2">{pickupLocation}</span></div>
+            <div><span className="text-brand-gray">Module:</span> <span className="text-gray-900 ml-2">{draft.rentalModule.replace('_', ' ')}</span></div>
             <div>
               <span className="text-brand-gray">Pickup:</span>{' '}
-              <span className="text-white ml-2">{draft.pickupDate} at {draft.pickupTime}</span>
+              <span className="text-gray-900 ml-2">{draft.pickupDate} at {draft.pickupTime}</span>
             </div>
             <div>
               <span className="text-brand-gray">Return:</span>{' '}
-              <span className="text-white ml-2">{draft.returnDate} at {draft.returnTime}</span>
+              <span className="text-gray-900 ml-2">{draft.returnDate} at {draft.returnTime}</span>
             </div>
             <div><span className="text-brand-gray">Rate:</span> <span className="text-brand-red ml-2 font-semibold">{formatCurrency(draft.pricePerDay)}/day</span></div>
-            <div><span className="text-brand-gray">Total:</span> <span className="text-white ml-2 font-bold text-lg">{formatCurrency(totalAmount)}</span></div>
+            <div><span className="text-brand-gray">Total:</span> <span className="text-gray-900 ml-2 font-bold text-lg">{formatCurrency(totalAmount)}</span></div>
           </div>
           {selectedVehicle && (
-            <img src={selectedVehicle.image} alt={selectedVehicle.name} className="w-full max-h-40 object-cover border border-white/10" />
+            <img src={selectedVehicle.image} alt={selectedVehicle.name} className="w-full max-h-40 object-cover border border-gray-200" />
           )}
           <div className="grid sm:grid-cols-2 gap-4">
             <div>

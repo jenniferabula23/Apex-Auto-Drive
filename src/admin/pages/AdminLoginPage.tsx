@@ -34,7 +34,7 @@ export default function AdminLoginPage() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center px-4 py-12 bg-black">
+    <div className="min-h-screen flex items-center justify-center px-4 py-12">
       <motion.div
         initial={{ opacity: 0, y: 24 }}
         animate={{ opacity: 1, y: 0 }}
@@ -46,7 +46,7 @@ export default function AdminLoginPage() {
           </div>
           <div>
             <p className="font-mono text-xs text-brand-red tracking-[0.3em] uppercase">Secure Access</p>
-            <h1 className="font-heading font-bold text-2xl text-white">Admin Login</h1>
+            <h1 className="font-heading font-bold text-2xl text-gray-900">Admin Login</h1>
           </div>
         </div>
 
@@ -89,7 +89,7 @@ export default function AdminLoginPage() {
         </form>
 
         <p className="text-brand-gray text-xs mt-6 text-center">
-          Demo: <span className="text-white">admin@apexautodrive.co</span> / <span className="text-white">admin123</span>
+          Demo: <span className="text-gray-900">admin@apexautodrive.co</span> / <span className="text-gray-900">admin123</span>
         </p>
         <p className="text-center mt-4">
           <Link to="/" className="text-sm text-brand-gray hover:text-brand-red transition-colors">

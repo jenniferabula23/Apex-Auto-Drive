@@ -91,7 +91,7 @@ export default function AdminDriversPage() {
           >
             <div>
               <div className="flex items-center gap-3 mb-1">
-                <h3 className="text-white font-semibold">{driver.name}</h3>
+                <h3 className="text-gray-900 font-semibold">{driver.name}</h3>
                 <AdminStatusBadge label={driver.status.replace('_', ' ')} tone={statusTone(driver.status)} />
               </div>
               <p className="text-brand-gray text-sm">{driver.phone} · {driver.licenseNumber}</p>
@@ -109,7 +109,7 @@ export default function AdminDriversPage() {
                 <option value="on_trip">On trip</option>
                 <option value="off_duty">Off duty</option>
               </select>
-              <button type="button" onClick={() => handleDelete(driver.id)} className="p-3 border border-white/10 text-brand-gray hover:text-brand-red hover:border-brand-red/30 transition-colors">
+              <button type="button" onClick={() => handleDelete(driver.id)} className="p-3 border border-gray-200 text-brand-gray hover:text-brand-red hover:border-brand-red/30 transition-colors">
                 <Trash2 className="w-4 h-4" />
               </button>
             </div>

@@ -11,7 +11,10 @@ import {
   Truck,
   FileText,
   Activity,
+  Tags,
+  Image,
 } from 'lucide-react';
+
 import type { LucideIcon } from 'lucide-react';
 
 export type AdminNavLink = {
@@ -24,6 +27,8 @@ export type AdminNavLink = {
 export const adminNavLinks: AdminNavLink[] = [
   { to: '/admin', label: 'Dashboard', icon: LayoutDashboard, end: true },
   { to: '/admin/vehicles', label: 'Vehicles', icon: Car },
+  { to: '/admin/categories', label: 'Vehicle Categories', icon: Tags },
+  { to: '/admin/hero', label: 'Hero Images', icon: Image },
   { to: '/admin/drivers', label: 'Drivers', icon: UserCircle },
   { to: '/admin/locations', label: 'Locations', icon: MapPin },
   { to: '/admin/rental-terms', label: 'Rental Terms', icon: FileText },

@@ -62,11 +62,11 @@ export default function SettingsPage() {
           onSubmit={saveProfile}
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="bg-black/50 backdrop-blur-xl border border-white/10 p-6 space-y-5"
+          className="bg-white border border-black/10 p-6 space-y-5"
         >
           <div className="flex items-center gap-2">
             <User className="w-4 h-4 text-brand-red" />
-            <h3 className="font-heading font-semibold text-white">Username</h3>
+            <h3 className="font-heading font-semibold text-gray-900">Username</h3>
           </div>
           <div>
             <label className="text-xs text-brand-gray uppercase tracking-widest mb-2 block">Display name</label>
@@ -74,7 +74,7 @@ export default function SettingsPage() {
               type="text"
               value={name}
               onChange={e => setName(e.target.value)}
-              className="w-full bg-white/5 border border-white/10 text-white px-4 py-3 focus:outline-none focus:border-brand-red transition-colors"
+              className="w-full bg-white border border-black/10 text-gray-900 px-4 py-3 focus:outline-none focus:border-brand-red transition-colors"
             />
           </div>
           <div>
@@ -83,7 +83,7 @@ export default function SettingsPage() {
               type="email"
               value={user?.email ?? ''}
               disabled
-              className="w-full bg-white/5 border border-white/10 text-brand-gray px-4 py-3 cursor-not-allowed"
+              className="w-full bg-gray-50 border border-black/10 text-brand-gray px-4 py-3 cursor-not-allowed"
             />
           </div>
           <button
@@ -101,11 +101,11 @@ export default function SettingsPage() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.1 }}
-          className="bg-black/50 backdrop-blur-xl border border-white/10 p-6 space-y-5"
+          className="bg-white border border-black/10 p-6 space-y-5"
         >
           <div className="flex items-center gap-2">
             <Lock className="w-4 h-4 text-brand-red" />
-            <h3 className="font-heading font-semibold text-white">Password</h3>
+            <h3 className="font-heading font-semibold text-gray-900">Password</h3>
           </div>
           <div>
             <label className="text-xs text-brand-gray uppercase tracking-widest mb-2 block">New password</label>
@@ -114,7 +114,7 @@ export default function SettingsPage() {
               minLength={6}
               value={password}
               onChange={e => setPassword(e.target.value)}
-              className="w-full bg-white/5 border border-white/10 text-white px-4 py-3 focus:outline-none focus:border-brand-red transition-colors"
+              className="w-full bg-white border border-black/10 text-gray-900 px-4 py-3 focus:outline-none focus:border-brand-red transition-colors"
               placeholder="••••••••"
             />
           </div>

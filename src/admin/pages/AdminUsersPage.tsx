@@ -60,7 +60,7 @@ export default function AdminUsersPage() {
           >
             <div>
               <div className="flex items-center gap-2 mb-1">
-                <h3 className="text-white font-semibold">{customer.name}</h3>
+                <h3 className="text-gray-900 font-semibold">{customer.name}</h3>
                 <AdminStatusBadge label={customer.status} tone={customer.status === 'active' ? 'green' : 'red'} />
                 {customer.documentUrl && (
                   <AdminStatusBadge label="ID on file" tone="purple" />

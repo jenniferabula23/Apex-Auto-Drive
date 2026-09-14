@@ -12,8 +12,9 @@ export default function AdminSidebar() {
       transition={{ duration: 0.3, ease: 'easeInOut' }}
       className="hidden lg:flex fixed top-24 left-6 bottom-6 z-40 flex-col"
     >
-      <div className="absolute -inset-1 bg-gradient-to-b from-brand-red/20 via-transparent to-orange-500/10 blur-xl opacity-60 pointer-events-none" />
-      <div className="relative flex-1 bg-black/60 backdrop-blur-2xl border border-white/10 flex flex-col overflow-hidden">
+      <div className="absolute -inset-1 bg-gradient-to-b from-brand-red/10 via-transparent to-orange-500/5 blur-xl opacity-60 pointer-events-none" />
+
+      <div className="relative flex-1 bg-surface-paper/95 border border-brand-brown/15 shadow-xl flex flex-col overflow-hidden accent-brown-bar">
         <AdminSidebarNav showCollapseToggle />
       </div>
     </motion.aside>
