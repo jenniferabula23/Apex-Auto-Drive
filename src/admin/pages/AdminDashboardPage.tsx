@@ -48,12 +48,12 @@ export default function AdminDashboardPage() {
           <div className="flex items-center gap-2 mb-4">
             <Sparkles className="w-4 h-4 text-brand-red" />
 
-            <span className="font-mono text-xs text-brand-red tracking-[0.4em] uppercase">
+            <span className="font-mono text-[10px] sm:text-xs text-brand-red tracking-widest uppercase">
               Admin Hub
             </span>
           </div>
 
-          <h1 className="font-heading font-black text-4xl lg:text-5xl text-gray-900 leading-tight mb-4">
+          <h1 className="font-heading font-black text-3xl sm:text-4xl lg:text-5xl text-gray-900 leading-tight mb-4 break-words">
             Fleet &{' '}
             <span className="text-brand-red">
               Operations
@@ -66,7 +66,7 @@ export default function AdminDashboardPage() {
 
           <Link
             to="/admin/vehicles/new"
-            className="inline-flex items-center gap-2 bg-brand-red hover:bg-brand-red-light text-white px-6 py-3 text-sm mt-8 transition-all duration-300 hover:shadow-[0_0_30px_rgba(174,33,25,0.25)]"
+            className="inline-flex items-center gap-2 bg-brand-red hover:bg-brand-red-light text-white px-6 py-3 text-sm mt-8 transition-all duration-300"
           >
             <Plus className="w-4 h-4" />
             Add vehicle

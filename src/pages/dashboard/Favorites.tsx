@@ -64,7 +64,7 @@ export default function Favorites() {
           <p className="text-brand-gray text-sm mb-6">Tap the heart icon on any vehicle to save it here.</p>
           <Link
             to="/vehicles"
-            className="inline-flex items-center gap-2 bg-brand-red hover:bg-brand-red-light text-white px-5 py-2.5 text-sm transition-all hover:shadow-[0_0_30px_rgba(174,33,25,0.6)]"
+            className="inline-flex items-center gap-2 bg-brand-red hover:bg-brand-red-light text-white px-5 py-2.5 text-sm transition-all"
           >
             Browse Fleet <ArrowRight className="w-4 h-4" />
           </Link>

@@ -124,7 +124,7 @@ export default function VehicleDetailsPage() {
               viewport={{ once: true }}
               className="relative overflow-hidden mb-4 bg-white border border-black/10 group"
               style={{
-                boxShadow: `0 30px 80px ${vehicle.glowColor}40, inset 0 0 30px ${vehicle.glowColor}10`,
+                boxShadow: '0 12px 32px rgba(63,42,28,0.1)',
               }}
             >
               <AnimatePresence mode="wait">
@@ -139,13 +139,13 @@ export default function VehicleDetailsPage() {
                   className="w-full h-80 object-cover"
                 />
               </AnimatePresence>
-              {/* Glow overlay */}
+              {/* Soft accent overlay */}
               <motion.div
                 className="absolute inset-0 pointer-events-none"
-                animate={{ opacity: [0.3, 0.5, 0.3] }}
+                animate={{ opacity: [0.15, 0.25, 0.15] }}
                 transition={{ duration: 4, repeat: Infinity }}
                 style={{
-                  background: `radial-gradient(ellipse at bottom, ${vehicle.glowColor}25 0%, transparent 70%)`,
+                  background: `radial-gradient(ellipse at bottom, ${vehicle.glowColor}14 0%, transparent 70%)`,
                 }}
               />
               {/* Reflection sweep */}
@@ -160,14 +160,14 @@ export default function VehicleDetailsPage() {
               {galleryViews.length > 1 && (
                 <>
                   <motion.button
-                    whileHover={{ scale: 1.1, boxShadow: `0 0 20px ${vehicle.glowColor}60` }}
+                    whileHover={{ scale: 1.05 }}
                     onClick={() => setActiveImage(p => Math.max(0, p - 1))}
                     className="absolute left-3 top-1/2 -translate-y-1/2 w-9 h-9 bg-black/60 border border-white/10 flex items-center justify-center hover:border-brand-red/50 transition-colors"
                   >
                     <ChevronLeft className="w-4 h-4 text-white" />
                   </motion.button>
                   <motion.button
-                    whileHover={{ scale: 1.1, boxShadow: `0 0 20px ${vehicle.glowColor}60` }}
+                    whileHover={{ scale: 1.05 }}
                     onClick={() => setActiveImage(p => Math.min(galleryViews.length - 1, p + 1))}
                     className="absolute right-3 top-1/2 -translate-y-1/2 w-9 h-9 bg-black/60 border border-white/10 flex items-center justify-center hover:border-brand-red/50 transition-colors"
                   >
@@ -199,7 +199,7 @@ export default function VehicleDetailsPage() {
                     onClick={() => setActiveImage(i)}
                     className={`group bg-white border overflow-hidden transition-all duration-300 ${
                       i === activeImage
-                        ? 'border-brand-red shadow-[0_0_15px_rgba(174,33,25,0.35)]'
+                        ? 'border-brand-red'
                         : 'border-black/10 hover:border-brand-red/30 opacity-80 hover:opacity-100'
                     }`}
                   >
@@ -227,7 +227,7 @@ export default function VehicleDetailsPage() {
               </div>
             </div>
 
-            <h1 className="font-heading font-black text-4xl text-gray-900 mb-2">{vehicle.name}</h1>
+            <h1 className="font-heading font-black text-3xl sm:text-4xl text-gray-900 mb-2 break-words">{vehicle.name}</h1>
             <p className="text-brand-gray mb-1">{vehicle.model} · {vehicle.year}</p>
             <div className="flex items-center gap-1 text-brand-gray text-sm mb-6">
               <MapPin className="w-4 h-4 text-brand-red" />

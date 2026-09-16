@@ -84,7 +84,7 @@ export default function Navbar() {
             {user ? (
               <Link
                 to="/dashboard"
-                className="flex items-center gap-2 bg-brand-red hover:bg-brand-red-light text-white text-sm px-4 py-2 transition-all duration-300 hover:shadow-[0_0_20px_rgba(174,33,25,0.5)]"
+                className="flex items-center gap-2 bg-brand-red hover:bg-brand-red-light text-white text-sm px-4 py-2 transition-all duration-300"
               >
                 <LayoutDashboard className="w-4 h-4" />
                 Dashboard
@@ -92,7 +92,7 @@ export default function Navbar() {
             ) : (
               <Link
                 to="/login"
-                className="flex items-center gap-2 bg-brand-red hover:bg-brand-red-light text-white text-sm px-4 py-2 transition-all duration-300 hover:shadow-[0_0_20px_rgba(174,33,25,0.5)]"
+                className="flex items-center gap-2 bg-brand-red hover:bg-brand-red-light text-white text-sm px-4 py-2 transition-all duration-300"
               >
                 <User className="w-4 h-4" />
                 Login

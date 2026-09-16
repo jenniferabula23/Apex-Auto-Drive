@@ -95,9 +95,9 @@ export default function DashboardOverview() {
         <div className="relative z-10 max-w-2xl">
           <div className="flex items-center gap-2 mb-4">
             <Sparkles className="w-4 h-4 text-brand-red" />
-            <span className="font-mono text-xs text-brand-red tracking-[0.4em] uppercase">Member Hub</span>
+            <span className="font-mono text-[10px] sm:text-xs text-brand-red tracking-widest uppercase">Member Hub</span>
           </div>
-          <h1 className="font-heading font-black text-4xl lg:text-5xl text-gray-900 leading-tight mb-4">
+          <h1 className="font-heading font-black text-3xl sm:text-4xl lg:text-5xl text-gray-900 leading-tight mb-4 break-words">
             Welcome Back, <span className="text-brand-red">{displayName}</span>
           </h1>
           <p className="text-brand-gray text-lg">Your premium driving experience awaits.</p>
@@ -105,13 +105,13 @@ export default function DashboardOverview() {
           <div className="flex flex-wrap gap-3 mt-8">
             <Link
               to="/vehicles"
-              className="inline-flex items-center gap-2 bg-brand-red hover:bg-brand-red-light text-white px-6 py-3 text-sm transition-all duration-300 hover:shadow-[0_0_30px_rgba(174,33,25,0.6)]"
+              className="inline-flex items-center gap-2 bg-brand-red hover:bg-brand-red-light text-white px-6 py-3 text-sm transition-all duration-300"
             >
               Browse Fleet <ArrowRight className="w-4 h-4" />
             </Link>
             <Link
               to="/dashboard/rentals"
-              className="inline-flex items-center gap-2 border border-black/10 hover:border-brand-red/50 text-gray-900 px-6 py-3 text-sm transition-all"
+              className="inline-flex items-center gap-2 border border-brand-brown/35 bg-surface-paper text-gray-900 hover:border-brand-red/50 hover:bg-brand-red/5 px-6 py-3 text-sm transition-all shadow-sm"
             >
               View Rentals
             </Link>
@@ -146,8 +146,8 @@ export default function DashboardOverview() {
               </div>
 
               <div className="lg:col-span-3 p-8 lg:p-10">
-                <p className="font-mono text-xs text-brand-red tracking-[0.4em] uppercase mb-2">Current Rental</p>
-                <h3 className="font-heading font-black text-3xl text-gray-900 mb-1">{active.vehicle_name}</h3>
+                <p className="font-mono text-[10px] sm:text-xs text-brand-red tracking-widest uppercase mb-2">Current Rental</p>
+                <h3 className="font-heading font-black text-2xl sm:text-3xl text-gray-900 mb-1 break-words">{active.vehicle_name}</h3>
                 <p className="text-brand-gray text-sm mb-6">Booking {active.booking_ref}</p>
 
                 <div className="grid sm:grid-cols-2 gap-4 mb-6">
@@ -194,11 +194,11 @@ export default function DashboardOverview() {
                       animate={{ opacity: 1, y: 0 }}
                       className="flex items-baseline gap-2"
                     >
-                      <span className="font-heading font-black text-3xl text-gray-900 drop-shadow-[0_0_10px_rgba(174,33,25,0.6)]">
+                      <span className="font-heading font-black text-3xl text-gray-900">
                         {remaining.days}
                       </span>
                       <span className="text-xs text-brand-gray uppercase tracking-widest">Days</span>
-                      <span className="font-heading font-black text-3xl text-gray-900 ml-3 drop-shadow-[0_0_10px_rgba(174,33,25,0.6)]">
+                      <span className="font-heading font-black text-3xl text-gray-900 ml-3">
                         {remaining.hours}
                       </span>
                       <span className="text-xs text-brand-gray uppercase tracking-widest">Hours</span>
@@ -218,7 +218,7 @@ export default function DashboardOverview() {
           <p className="text-brand-gray text-sm mb-6">Book a vehicle to start your premium driving experience.</p>
           <Link
             to="/vehicles"
-            className="inline-flex items-center gap-2 bg-brand-red hover:bg-brand-red-light text-white px-6 py-3 text-sm transition-all hover:shadow-[0_0_30px_rgba(174,33,25,0.6)]"
+            className="inline-flex items-center gap-2 bg-brand-red hover:bg-brand-red-light text-white px-6 py-3 text-sm transition-all"
           >
             Browse Fleet <ArrowRight className="w-4 h-4" />
           </Link>
@@ -260,9 +260,9 @@ export default function DashboardOverview() {
               >
                 <span
                   className={`w-2 h-2 rounded-full mt-1.5 ${
-                    n.tone === 'red' ? 'bg-brand-red shadow-[0_0_10px_rgba(174,33,25,0.8)]'
-                      : n.tone === 'orange' ? 'bg-orange-400 shadow-[0_0_10px_rgba(251,146,60,0.8)]'
-                      : 'bg-yellow-400 shadow-[0_0_10px_rgba(250,204,21,0.8)]'
+                    n.tone === 'red' ? 'bg-brand-red'
+                      : n.tone === 'orange' ? 'bg-orange-400'
+                      : 'bg-yellow-400'
                   }`}
                 />
                 <div>
@@ -291,7 +291,7 @@ export default function DashboardOverview() {
             </p>
             <Link
               to="/vehicles"
-              className="inline-flex items-center gap-2 bg-white/10 hover:bg-brand-red text-white px-4 py-2 text-xs transition-colors"
+              className="inline-flex items-center gap-2 bg-brand-red hover:bg-brand-red-light text-white px-4 py-2 text-xs transition-colors border border-brand-red"
             >
               Redeem <ArrowRight className="w-3.5 h-3.5" />
             </Link>

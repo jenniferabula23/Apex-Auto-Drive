@@ -105,7 +105,7 @@ export default function AdminAddVehiclePage() {
             onClick={() => setStep(i)}
             className={`px-4 py-2 text-xs tracking-wider uppercase transition-all ${
               step === i
-                ? 'bg-brand-red text-white shadow-[0_0_20px_rgba(174,33,25,0.25)]'
+                ? 'bg-brand-red text-white'
                 : 'border border-gray-200 text-gray-500 hover:border-brand-red/30 hover:text-gray-900'
             }`}
           >

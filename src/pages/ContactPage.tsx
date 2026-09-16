@@ -24,7 +24,7 @@ export default function ContactPage() {
             <span className="text-brand-red text-xs tracking-widest uppercase border border-brand-red/30 px-4 py-2">
               Get In Touch
             </span>
-            <h1 className="font-heading font-black text-6xl text-gray-900 mt-6 mb-4">
+            <h1 className="font-heading font-black text-3xl sm:text-5xl md:text-6xl text-gray-900 mt-6 mb-4 break-words">
               Contact <span className="text-brand-red">Us</span>
             </h1>
             <p className="text-brand-gray text-lg max-w-xl mx-auto">
@@ -80,7 +80,7 @@ export default function ContactPage() {
 
               {submitted ? (
                 <div className="text-center py-12">
-                  <div className="w-16 h-16 bg-brand-red/10 border border-brand-red flex items-center justify-center mx-auto mb-4 shadow-[0_0_30px_rgba(174,33,25,0.3)]">
+                  <div className="w-16 h-16 bg-brand-red/10 border border-brand-red flex items-center justify-center mx-auto mb-4">
                     <Check className="w-7 h-7 text-brand-red" />
                   </div>
                   <h3 className="font-heading font-bold text-gray-900 text-xl mb-2">Message Sent!</h3>

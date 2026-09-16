@@ -129,7 +129,7 @@ export default function AdminReservationsPage() {
       />
 
       {createdRef && (
-        <p className="text-sm text-green-400 bg-green-400/10 border border-green-400/20 px-4 py-3">
+        <p className="text-sm text-green-800 bg-green-50 border border-green-700/20 px-4 py-3">
           Reservation <span className="font-mono">{createdRef}</span> created successfully.
         </p>
       )}

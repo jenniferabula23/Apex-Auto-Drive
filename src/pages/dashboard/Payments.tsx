@@ -43,13 +43,13 @@ export default function Payments() {
             <div className="absolute -top-10 -right-10 w-48 h-48 bg-brand-red/30 rounded-full blur-3xl" />
             <div className="relative flex justify-between items-start">
               <div>
-                <p className="text-[10px] text-brand-gray uppercase tracking-[0.4em]">Apex Auto Drive</p>
+                <p className="text-[10px] text-brand-gray uppercase tracking-wide">Apex Auto Drive</p>
                 <p className="text-xs text-brand-gray mt-1">Elite Member Card</p>
               </div>
               <CreditCard className="w-7 h-7 text-brand-red" />
             </div>
             <div className="relative">
-              <p className="font-mono text-xl text-white tracking-[0.3em]">•••• •••• •••• 4729</p>
+              <p className="font-mono text-base sm:text-xl text-white tracking-[0.2em] sm:tracking-[0.3em]">•••• •••• •••• 4729</p>
               <div className="flex justify-between mt-4">
                 <div>
                   <p className="text-[10px] text-brand-gray uppercase tracking-widest">Holder</p>
@@ -71,13 +71,13 @@ export default function Payments() {
           className="bg-white border border-black/10 p-7 flex flex-col justify-between"
         >
           <div>
-            <p className="text-[10px] text-brand-gray uppercase tracking-[0.4em]">Lifetime Spend</p>
+            <p className="text-[10px] text-brand-gray uppercase tracking-wide">Lifetime Spend</p>
             <p className="font-heading font-black text-4xl text-gray-900 mt-3">
               {format(totalSpent)}
             </p>
             <p className="text-brand-gray text-sm mt-1">{bookings.length} total bookings</p>
           </div>
-          <button className="mt-6 inline-flex items-center justify-center gap-2 border border-black/10 hover:border-brand-red/50 text-gray-900 px-4 py-2.5 text-sm transition-all">
+          <button className="mt-6 inline-flex items-center justify-center gap-2 border border-brand-brown/35 bg-surface-paper text-gray-900 hover:border-brand-red/50 hover:bg-brand-red/5 px-4 py-2.5 text-sm transition-all shadow-sm">
             <Plus className="w-4 h-4" /> Add Payment Method
           </button>
         </motion.div>

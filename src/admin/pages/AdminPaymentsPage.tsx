@@ -55,12 +55,12 @@ export default function AdminPaymentsPage() {
 
       <div className="grid sm:grid-cols-2 gap-4">
         <div className={`${adminCard} p-5`}>
-          <p className="text-brand-gray text-xs uppercase tracking-widest mb-1">Collected</p>
-          <p className="text-2xl font-heading font-bold text-green-400">{formatCurrency(totals.paid)}</p>
+          <p className="text-gray-700 text-xs uppercase tracking-widest mb-1">Collected</p>
+          <p className="text-2xl font-heading font-bold text-green-800">{formatCurrency(totals.paid)}</p>
         </div>
         <div className={`${adminCard} p-5`}>
-          <p className="text-brand-gray text-xs uppercase tracking-widest mb-1">Outstanding</p>
-          <p className="text-2xl font-heading font-bold text-orange-400">{formatCurrency(totals.pending)}</p>
+          <p className="text-gray-700 text-xs uppercase tracking-widest mb-1">Outstanding</p>
+          <p className="text-2xl font-heading font-bold text-orange-700">{formatCurrency(totals.pending)}</p>
         </div>
       </div>
 

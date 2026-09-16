@@ -50,7 +50,7 @@ export default function LoginPage() {
               alt="Apex Auto Drive"
               className="brand-logo h-14 w-auto object-contain mx-auto mb-4"
             />
-            <span className="font-mono text-xs text-brand-red tracking-[0.4em] uppercase">
+            <span className="font-mono text-[10px] sm:text-xs text-brand-red tracking-widest uppercase">
               {mode === 'login' ? 'Member Access' : 'Join the Elite'}
             </span>
             <h1 className="font-heading font-black text-4xl text-gray-900 mt-3">
@@ -124,7 +124,7 @@ export default function LoginPage() {
             <button
               type="submit"
               disabled={loading}
-              className="w-full flex items-center justify-center gap-2 bg-brand-red hover:bg-brand-red-light text-white font-medium py-3 transition-all duration-300 hover:shadow-[0_0_30px_rgba(174,33,25,0.6)] disabled:opacity-50"
+              className="w-full flex items-center justify-center gap-2 bg-brand-red hover:bg-brand-red-light text-white font-medium py-3 transition-all duration-300 disabled:opacity-50"
             >
               {loading ? (
                 <Loader2 className="w-4 h-4 animate-spin" />

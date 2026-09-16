@@ -17,8 +17,8 @@ export default function DashboardHeader({ eyebrow, title, description, action }:
       className="border-b border-brand-brown/15 pb-6 flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4"
     >
       <div>
-        <span className="font-mono text-xs text-brand-red tracking-[0.4em] uppercase">{eyebrow}</span>
-        <h1 className="font-heading font-black text-4xl text-gray-900 mt-3">{title}</h1>
+        <span className="font-mono text-[10px] sm:text-xs text-brand-red tracking-widest uppercase">{eyebrow}</span>
+        <h1 className="font-heading font-black text-3xl sm:text-4xl text-gray-900 mt-3 break-words">{title}</h1>
         {description && <p className="text-brand-gray text-sm mt-2 max-w-2xl">{description}</p>}
       </div>
       {action}

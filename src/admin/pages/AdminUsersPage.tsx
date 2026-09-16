@@ -39,7 +39,7 @@ export default function AdminUsersPage() {
       />
 
       {createdName && (
-        <p className="text-sm text-green-400 bg-green-400/10 border border-green-400/20 px-4 py-3">
+        <p className="text-sm text-green-800 bg-green-50 border border-green-700/20 px-4 py-3">
           User <span className="font-semibold">{createdName}</span> added successfully.
         </p>
       )}

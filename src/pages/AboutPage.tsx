@@ -65,7 +65,7 @@ export default function AboutPage() {
             <span className="text-brand-red text-xs tracking-widest uppercase border border-brand-red/30 px-4 py-2">
               Our Story
             </span>
-            <h1 className="font-heading font-black text-6xl text-gray-900 mt-6 mb-4">
+            <h1 className="font-heading font-black text-3xl sm:text-5xl md:text-6xl text-gray-900 mt-6 mb-4 break-words">
               About <span className="text-brand-red">Apex Auto Drive</span>
             </h1>
             <p className="text-brand-gray text-lg max-w-2xl mx-auto leading-relaxed">
@@ -138,7 +138,7 @@ export default function AboutPage() {
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.3 }}
-                className="absolute -bottom-6 -left-6 bg-[#2a1810] border border-brand-red/30 p-5 shadow-[0_0_30px_rgba(174,33,25,0.3)]"
+                className="absolute -bottom-6 -left-6 bg-[#2a1810] border border-brand-red/30 p-5"
               >
                 <div className="flex gap-1 mb-2">
                   {[...Array(5)].map((_, i) => (
@@ -328,7 +328,7 @@ export default function AboutPage() {
       {/* CTA */}
       <section className="py-20 bg-brand-red/10 border-t border-brand-red/20">
         <div className="max-w-3xl mx-auto px-4 text-center">
-          <h3 className="font-heading font-bold text-4xl text-gray-900 mb-4">
+          <h3 className="font-heading font-bold text-3xl sm:text-4xl text-gray-900 mb-4 break-words">
             Ready To Drive with <span className="text-brand-red">Confidence?</span>
           </h3>
           <p className="text-brand-gray mb-8">

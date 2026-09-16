@@ -68,7 +68,7 @@ export default function ServicesPage() {
             <span className="text-brand-red text-xs tracking-widest uppercase border border-brand-red/30 px-4 py-2">
               What We Offer
             </span>
-            <h1 className="font-heading font-black text-6xl text-gray-900 mt-6 mb-4">
+            <h1 className="font-heading font-black text-3xl sm:text-5xl md:text-6xl text-gray-900 mt-6 mb-4 break-words">
               Our Transportation <span className="text-brand-red">Services</span>
             </h1>
             <p className="text-brand-gray text-lg max-w-2xl mx-auto leading-relaxed">
@@ -284,7 +284,7 @@ export default function ServicesPage() {
         />
         <div className="absolute inset-0 bg-gradient-to-r from-white via-white/80 to-white/50" />
         <div className="relative z-10 max-w-3xl mx-auto px-4 text-center">
-          <h2 className="font-heading font-black text-5xl text-gray-900 mb-4">
+          <h2 className="font-heading font-black text-3xl sm:text-5xl text-gray-900 mb-4 break-words">
             Find The Perfect Transportation<br />
             <span className="text-brand-red">Solution</span>
           </h2>
