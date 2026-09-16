@@ -5,11 +5,11 @@ type Props = {
 
 const tones: Record<NonNullable<Props['tone']>, string> = {
   red: 'border-brand-red/40 text-brand-red bg-brand-red/10',
-  green: 'border-green-500/40 text-green-400 bg-green-500/10',
-  orange: 'border-orange-500/40 text-orange-400 bg-orange-500/10',
-  yellow: 'border-yellow-500/40 text-yellow-400 bg-yellow-500/10',
-  gray: 'border-gray-200 text-brand-gray bg-gray-50',
-  purple: 'border-purple-500/40 text-purple-300 bg-purple-500/10',
+  green: 'border-green-700/30 text-green-800 bg-green-50',
+  orange: 'border-orange-600/30 text-orange-800 bg-orange-50',
+  yellow: 'border-amber-600/30 text-amber-800 bg-amber-50',
+  gray: 'border-gray-300 text-gray-800 bg-gray-50',
+  purple: 'border-purple-600/30 text-purple-800 bg-purple-50',
 };
 
 export default function AdminStatusBadge({ label, tone = 'gray' }: Props) {

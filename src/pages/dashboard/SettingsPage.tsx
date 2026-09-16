@@ -89,7 +89,7 @@ export default function SettingsPage() {
           <button
             type="submit"
             disabled={savingProfile}
-            className="inline-flex items-center gap-2 bg-brand-red hover:bg-brand-red-light text-white px-5 py-2.5 text-sm transition-all hover:shadow-[0_0_25px_rgba(174,33,25,0.6)] disabled:opacity-50"
+            className="inline-flex items-center gap-2 bg-brand-red hover:bg-brand-red-light text-white px-5 py-2.5 text-sm transition-all disabled:opacity-50"
           >
             {savingProfile ? <Loader2 className="w-4 h-4 animate-spin" /> : <><Save className="w-4 h-4" /> Save name</>}
           </button>
@@ -121,7 +121,7 @@ export default function SettingsPage() {
           <button
             type="submit"
             disabled={savingPwd || password.length < 6}
-            className="inline-flex items-center gap-2 bg-brand-red hover:bg-brand-red-light text-white px-5 py-2.5 text-sm transition-all hover:shadow-[0_0_25px_rgba(174,33,25,0.6)] disabled:opacity-40"
+            className="inline-flex items-center gap-2 bg-brand-red hover:bg-brand-red-light text-white px-5 py-2.5 text-sm transition-all disabled:opacity-40"
           >
             {savingPwd ? <Loader2 className="w-4 h-4 animate-spin" /> : <><Save className="w-4 h-4" /> Update password</>}
           </button>

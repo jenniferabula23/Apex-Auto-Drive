@@ -35,13 +35,13 @@ export default function Support() {
             className="relative group"
           >
             <div className="absolute -inset-px bg-gradient-to-br from-brand-red/30 to-orange-500/10 opacity-0 group-hover:opacity-100 blur transition-opacity duration-500" />
-            <div className="relative bg-white border border-black/10 p-6 h-full flex flex-col">
+            <div className="relative bg-surface-paper border border-brand-brown/20 p-6 h-full flex flex-col shadow-sm">
               <div className="w-11 h-11 bg-brand-red/10 border border-brand-red/30 flex items-center justify-center mb-4">
                 <c.icon className="w-5 h-5 text-brand-red" />
               </div>
               <h4 className="font-heading font-bold text-gray-900 mb-1">{c.title}</h4>
               <p className="text-sm text-brand-gray mb-5 flex-1">{c.desc}</p>
-              <button className="inline-flex items-center gap-2 text-sm text-gray-900 hover:text-brand-red transition-colors">
+              <button className="inline-flex items-center gap-2 text-sm font-medium text-brand-red border border-brand-brown/30 bg-surface-paper px-3 py-2 hover:border-brand-red/50 hover:bg-brand-red/5 transition-colors shadow-sm">
                 {c.cta} <ArrowRight className="w-3.5 h-3.5" />
               </button>
             </div>

@@ -231,7 +231,7 @@ export default function IdentityVerification() {
       <button
         type="submit"
         disabled={saving}
-        className="inline-flex items-center gap-2 bg-brand-red hover:bg-brand-red-light text-white px-5 py-2.5 text-sm transition-all hover:shadow-[0_0_25px_rgba(174,33,25,0.6)] disabled:opacity-50"
+        className="inline-flex items-center gap-2 bg-brand-red hover:bg-brand-red-light text-white px-5 py-2.5 text-sm transition-all disabled:opacity-50"
       >
         {saving ? <Loader2 className="w-4 h-4 animate-spin" /> : <><Save className="w-4 h-4" /> Save verification</>}
       </button>

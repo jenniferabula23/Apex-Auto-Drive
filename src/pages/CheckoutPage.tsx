@@ -205,7 +205,7 @@ export default function CheckoutPage() {
             animate={{ scale: 1, opacity: 1 }}
             transition={{ type: 'spring', stiffness: 100 }}
           >
-            <div className="w-24 h-24 bg-brand-red/10 border-2 border-brand-red flex items-center justify-center mx-auto mb-8 shadow-[0_0_60px_rgba(174,33,25,0.4)]">
+            <div className="w-24 h-24 bg-brand-red/10 border-2 border-brand-red flex items-center justify-center mx-auto mb-8">
               <Check className="w-10 h-10 text-brand-red" />
             </div>
           </motion.div>

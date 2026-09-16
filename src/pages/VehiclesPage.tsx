@@ -71,9 +71,9 @@ export default function VehiclesPage() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
-            className="font-heading font-black text-5xl text-gray-900 mb-4"
+            className="font-heading font-black text-3xl sm:text-5xl text-gray-900 mb-4 break-words"
           >
-            Find Your <span className="text-brand-red" style={{ textShadow: '0 0 40px rgba(174,33,25,0.6)' }}>Perfect Ride</span>
+            Find Your <span className="text-brand-red">Perfect Ride</span>
           </motion.h1>
           <motion.p
             initial={{ opacity: 0 }}
@@ -139,7 +139,7 @@ export default function VehiclesPage() {
                         onClick={() => setCategory(opt)}
                         className={`px-3 py-1.5 text-xs transition-all ${
                           category === opt
-                            ? 'bg-brand-red text-white shadow-[0_0_15px_rgba(174,33,25,0.4)]'
+                            ? 'bg-brand-red text-white'
                             : 'border border-black/10 text-brand-gray hover:border-black/30 hover:text-brand-red'
                         }`}
                       >
@@ -244,7 +244,7 @@ export default function VehiclesPage() {
                   <select
                     value={sortBy}
                     onChange={e => setSortBy(e.target.value)}
-                    className="bg-white border border-black/10 text-gray-900 text-sm pl-10 pr-4 py-2.5 outline-none focus:border-brand-red/50 focus:shadow-[0_0_15px_rgba(174,33,25,0.2)] transition-all cursor-pointer appearance-none hover:border-black/20"
+                    className="bg-white border border-black/10 text-gray-900 text-sm pl-10 pr-4 py-2.5 outline-none focus:border-brand-red/50 transition-all cursor-pointer appearance-none hover:border-black/20"
                   >
                     <option value="recommended">Recommended</option>
                     <option value="price-asc">Price: Low to High</option>

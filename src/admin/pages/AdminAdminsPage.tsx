@@ -99,8 +99,8 @@ export default function AdminAdminsPage() {
               <div className="flex flex-wrap gap-2">
                 <span className={`text-[10px] px-3 py-1.5 uppercase tracking-widest border ${
                   admin.onDuty
-                    ? 'border-green-500/40 text-green-400 bg-green-500/10'
-                    : 'border-gray-200 text-brand-gray bg-gray-50'
+                    ? 'border-green-700/30 text-green-800 bg-green-50'
+                    : 'border-gray-300 text-gray-800 bg-gray-50'
                 }`}>
                   {admin.onDuty ? 'On Duty' : 'Off Duty'}
                 </span>

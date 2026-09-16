@@ -44,7 +44,7 @@ export default function BookingForm() {
         <form onSubmit={handleSearch} className="w-full min-w-0">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-5 w-full min-w-0">
             <div className="min-w-0 w-full">
-              <label className="block text-xs text-brand-gray uppercase tracking-widest mb-2">Pickup Location</label>
+              <label className="block text-xs text-brand-gray uppercase tracking-wide mb-2">Pickup Location</label>
               <div className="relative w-full min-w-0">
                 <MapPin className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-brand-red pointer-events-none z-10" />
                 <select
@@ -58,7 +58,7 @@ export default function BookingForm() {
             </div>
 
             <div className="min-w-0 w-full">
-              <label className="block text-xs text-brand-gray uppercase tracking-widest mb-2">Pickup Date</label>
+              <label className="block text-xs text-brand-gray uppercase tracking-wide mb-2">Pickup Date</label>
               <div className="relative w-full min-w-0">
                 <Calendar className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-brand-red pointer-events-none z-10" />
                 <input
@@ -72,7 +72,7 @@ export default function BookingForm() {
             </div>
 
             <div className="min-w-0 w-full">
-              <label className="block text-xs text-brand-gray uppercase tracking-widest mb-2">Pickup Time</label>
+              <label className="block text-xs text-brand-gray uppercase tracking-wide mb-2">Pickup Time</label>
               <div className="relative w-full min-w-0">
                 <Clock className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-brand-red pointer-events-none z-10" />
                 <input
@@ -85,7 +85,7 @@ export default function BookingForm() {
             </div>
 
             <div className="min-w-0 w-full sm:col-span-2 lg:col-span-1">
-              <label className="block text-xs text-brand-gray uppercase tracking-widest mb-2">Return Date</label>
+              <label className="block text-xs text-brand-gray uppercase tracking-wide mb-2">Return Date</label>
               <div className="relative w-full min-w-0">
                 <Calendar className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-brand-red pointer-events-none z-10" />
                 <input
@@ -103,7 +103,7 @@ export default function BookingForm() {
             type="submit"
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
-            className="w-full bg-brand-red hover:bg-brand-red-light text-white font-semibold py-4 flex items-center justify-center gap-3 tracking-widest uppercase text-sm transition-all duration-300 hover:shadow-[0_0_50px_rgba(174,33,25,0.7)] group relative overflow-hidden"
+            className="w-full bg-brand-red hover:bg-brand-red-light text-white font-semibold py-4 flex items-center justify-center gap-3 tracking-wide uppercase text-sm transition-all duration-300 group relative overflow-hidden"
           >
             <Search className="w-4 h-4" />
             <span>Search Available Vehicles</span>

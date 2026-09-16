@@ -45,7 +45,7 @@ export default function AdminLoginPage() {
             <Shield className="w-6 h-6 text-brand-red" />
           </div>
           <div>
-            <p className="font-mono text-xs text-brand-red tracking-[0.3em] uppercase">Secure Access</p>
+            <p className="font-mono text-[10px] sm:text-xs text-brand-red tracking-widest uppercase">Secure Access</p>
             <h1 className="font-heading font-bold text-2xl text-gray-900">Admin Login</h1>
           </div>
         </div>

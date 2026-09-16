@@ -17,13 +17,14 @@
 
   html {
     scroll-behavior: smooth;
+    overflow-x: clip;
   }
 
   body {
     font-family: Tahoma, Poppins, Geneva, Verdana, sans-serif;
     background-color: var(--surface-warm);
     color: #111111;
-    overflow-x: hidden;
+    overflow-x: clip;
   }
 
   h1, h2, h3, h4, h5, h6 {
@@ -33,15 +34,15 @@
 
 @layer utilities {
   .glow-red {
-    box-shadow: 0 0 30px rgba(174, 33, 25, 0.6), 0 0 60px rgba(174, 33, 25, 0.2);
+    box-shadow: 0 4px 14px rgba(174, 33, 25, 0.18);
   }
 
   .glow-red-sm {
-    box-shadow: 0 0 15px rgba(174, 33, 25, 0.5);
+    box-shadow: 0 2px 8px rgba(174, 33, 25, 0.14);
   }
 
   .text-glow {
-    text-shadow: 0 0 30px rgba(174, 33, 25, 0.8);
+    text-shadow: none;
   }
 
   .glass {
@@ -117,32 +118,48 @@
   .btn-primary {
     @apply bg-brand-red text-white font-semibold px-8 py-3
            transition-all duration-300 hover:bg-brand-red-light
-           hover:shadow-[0_0_30px_rgba(174,33,25,0.6)]
            active:scale-95 tracking-wider uppercase text-sm;
   }
 
   .btn-outline {
-    @apply border border-white/20 text-white font-semibold
+    @apply border border-brand-brown/30 text-gray-900 font-semibold
            px-8 py-3 transition-all duration-300
-           hover:border-brand-red hover:text-white
-           hover:shadow-[0_0_20px_rgba(174,33,25,0.3)]
-           active:scale-95 tracking-wider uppercase text-sm;
+           hover:border-brand-red hover:text-brand-red
+           active:scale-95 tracking-wider uppercase text-sm
+           bg-surface-paper;
   }
 
   .section-heading {
-    @apply text-4xl md:text-5xl font-bold font-heading tracking-tight;
+    @apply text-3xl sm:text-4xl md:text-5xl font-bold font-heading tracking-tight break-words;
   }
 }
 
-/* Light theme overrides for customer-facing pages. */
-.customer-site .btn-outline {
-  border-color: rgba(63, 42, 28, 0.22);
-  color: #6b4e3d;
+/* Light theme outline buttons (customer + admin share the white UI). */
+.customer-site .btn-outline,
+.site-shell .btn-outline {
+  border-color: rgba(63, 42, 28, 0.28);
+  color: #111111;
+  background-color: rgba(255, 252, 249, 0.95);
 }
 
-.customer-site .btn-outline:hover {
+.customer-site .btn-outline:hover,
+.site-shell .btn-outline:hover {
   border-color: #AE2119;
   color: #AE2119;
+}
+
+/* Admin light theme: keep pale Tailwind status colors readable on white. */
+.site-shell:not(.customer-site) .text-green-400 {
+  color: #166534;
+}
+.site-shell:not(.customer-site) .text-orange-400 {
+  color: #c2410c;
+}
+.site-shell:not(.customer-site) .text-yellow-400 {
+  color: #a16207;
+}
+.site-shell:not(.customer-site) .text-purple-300 {
+  color: #6b21a8;
 }
 
 ::-webkit-scrollbar {
